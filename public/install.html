@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Install ScholarScope</title>
+    <meta
+      name="description"
+      content="Download the ScholarScope Chrome/Edge extension package and install in one minute."
+    />
+    <link rel="icon" href="/favicon.svg" />
+    <style>
+      :root {
+        --ink: #0f1c1a;
+        --muted: #4a5c58;
+        --line: #d5e0dc;
+        --bg: #f3f7f5;
+        --card: #ffffff;
+        --accent: #0d6e63;
+        --accent-2: #0a564e;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font-family: "Segoe UI", system-ui, sans-serif;
+        color: var(--ink);
+        background:
+          radial-gradient(1200px 500px at 10% -10%, #d7efe8 0%, transparent 55%),
+          radial-gradient(900px 400px at 100% 0%, #e8f2ee 0%, transparent 50%),
+          var(--bg);
+        min-height: 100vh;
+      }
+      main {
+        max-width: 720px;
+        margin: 0 auto;
+        padding: 48px 20px 80px;
+      }
+      a {
+        color: var(--accent);
+      }
+      h1 {
+        font-size: clamp(1.8rem, 4vw, 2.4rem);
+        letter-spacing: -0.03em;
+        margin: 0 0 10px;
+      }
+      .lead {
+        color: var(--muted);
+        font-size: 1.05rem;
+        line-height: 1.5;
+        margin: 0 0 28px;
+      }
+      .cta-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-bottom: 28px;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 14px 20px;
+        border-radius: 10px;
+        font-weight: 650;
+        text-decoration: none;
+        border: 1px solid transparent;
+      }
+      .btn-primary {
+        background: var(--accent);
+        color: #fff;
+      }
+      .btn-primary:hover {
+        background: var(--accent-2);
+      }
+      .btn-ghost {
+        background: var(--card);
+        color: var(--ink);
+        border-color: var(--line);
+      }
+      .panel {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 22px 22px 8px;
+        margin-bottom: 18px;
+      }
+      .panel h2 {
+        margin: 0 0 12px;
+        font-size: 1.1rem;
+      }
+      ol {
+        margin: 0 0 16px;
+        padding-left: 1.2rem;
+        color: var(--ink);
+        line-height: 1.55;
+      }
+      li {
+        margin-bottom: 8px;
+      }
+      code {
+        font-family: ui-monospace, Consolas, monospace;
+        font-size: 0.92em;
+        background: #eef4f1;
+        padding: 1px 6px;
+        border-radius: 5px;
+      }
+      .note {
+        color: var(--muted);
+        font-size: 0.95rem;
+        line-height: 1.5;
+        margin: 0 0 18px;
+      }
+      .meta {
+        font-size: 0.9rem;
+        color: var(--muted);
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Install ScholarScope</h1>
+      <p class="lead">
+        Download one extension package for Chrome or Edge. No project folder to
+        keep in sync — unzip once, load that folder, done.
+      </p>
+
+      <div class="cta-row">
+        <a
+          class="btn btn-primary"
+          id="download-btn"
+          href="/downloads/ScholarScope-extension.zip"
+          download="ScholarScope-extension.zip"
+        >
+          Download extension (.zip)
+        </a>
+        <a class="btn btn-ghost" href="/">Back to site</a>
+      </div>
+      <p class="meta" id="pack-meta">Preparing package info…</p>
+
+      <div class="panel">
+        <h2>Chrome</h2>
+        <ol>
+          <li>Download <code>ScholarScope-extension.zip</code></li>
+          <li>Unzip it (you get one folder)</li>
+          <li>Open <code>chrome://extensions</code> and turn on Developer mode</li>
+          <li>Click <strong>Load unpacked</strong> → select that unzipped folder</li>
+        </ol>
+      </div>
+
+      <div class="panel">
+        <h2>Microsoft Edge</h2>
+        <ol>
+          <li>Download the same ZIP</li>
+          <li>Unzip it</li>
+          <li>Open <code>edge://extensions</code> and turn on Developer mode</li>
+          <li>Click <strong>Load unpacked</strong> → select that unzipped folder</li>
+        </ol>
+      </div>
+
+      <p class="note">
+        Browsers block installing custom <code>.crx</code> /
+        <code>.extension</code> files from websites. A ZIP package is the
+        official format. For true one-click install and automatic updates,
+        publish the same ZIP to the Chrome Web Store (or Edge Add-ons).
+      </p>
+    </main>
+    <script>
+      fetch("/downloads/ScholarScope-extension.json")
+        .then(function (r) {
+          return r.ok ? r.json() : null;
+        })
+        .then(function (meta) {
+          var el = document.getElementById("pack-meta");
+          if (!meta) {
+            el.textContent =
+              "Package not built yet — run npm run pack in scholarscope-ext.";
+            return;
+          }
+          var kb = (meta.bytes / 1024).toFixed(1);
+          el.textContent =
+            meta.name +
+            " v" +
+            meta.version +
+            " · " +
+            kb +
+            " KB · packed " +
+            new Date(meta.packedAt).toLocaleString();
+        })
+        .catch(function () {
+          document.getElementById("pack-meta").textContent =
+            "Could not read package metadata.";
+        });
+    </script>
+  </body>
+</html>

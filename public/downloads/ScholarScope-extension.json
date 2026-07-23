@@ -1,0 +1,23 @@
+{
+  "name": "ScholarScope",
+  "version": "1.9.3",
+  "file": "ScholarScope-extension.zip",
+  "path": "/downloads/ScholarScope-extension.zip",
+  "bytes": 985693,
+  "packedAt": "2026-07-22T19:22:44.228Z",
+  "install": {
+    "chrome": [
+      "Download ScholarScope-extension.zip",
+      "Unzip the file (you get one folder)",
+      "Open chrome://extensions → enable Developer mode",
+      "Click Load unpacked → select the unzipped folder"
+    ],
+    "edge": [
+      "Download ScholarScope-extension.zip",
+      "Unzip the file",
+      "Open edge://extensions → enable Developer mode",
+      "Click Load unpacked → select the unzipped folder"
+    ],
+    "note": "Chrome blocks installing .crx/.extension files from websites. This ZIP is the official package. Chrome Web Store gives one-click install + auto-updates once published."
+  }
+}

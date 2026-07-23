@@ -1,0 +1,27 @@
+{
+  "name": "scholarscope-site",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "pack:ext": "npm --prefix ../scholarscope-ext run pack",
+    "clone": "node scripts/build-clone.mjs",
+    "predev": "npm run pack:ext && node scripts/build-clone.mjs",
+    "dev": "vite",
+    "prebuild": "npm run pack:ext && node scripts/build-clone.mjs",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
+    "react-router-dom": "^7.18.1"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^6.0.3",
+    "oxlint": "^1.71.0",
+    "vite": "^8.1.1"
+  }
+}
