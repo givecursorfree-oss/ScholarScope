@@ -1,6 +1,5 @@
 /**
- * How-it-works — native Toolify/Webflow cases-tabs markup (no custom mosaic).
- * Same classes as toolify_webflow_io.html so site CSS/IX apply.
+ * How-it-works — native Toolify/Webflow cases-tabs (3 steps = headline).
  */
 
 function codeLine(n, html) {
@@ -14,16 +13,16 @@ function tabPane(tab, active, { problem, solution, outputJson, codeLines }) {
                           <div class="cases-wrapp">
                             <div class="cases-grid">
                               <div class="cases-card">
-                                <div class="cases-name">Problem</div>
+                                <div class="cases-name">You need</div>
                                 <div class="cases-except">${problem}</div>
                               </div>
                               <div class="cases-card">
-                                <div class="cases-name">Solution</div>
+                                <div class="cases-name">Do this</div>
                                 <div class="cases-except">${solution}</div>
                               </div>
                               <div class="case-inform">
                                 <div class="cases-info">
-                                  <div class="cases-name">Output</div>
+                                  <div class="cases-name">Result</div>
                                 </div>
                                 <div class="cases-emb">
                                   <div class="cases-code">${outputJson}</div>
@@ -50,8 +49,8 @@ const steps = [
   {
     tab: "Tab 1",
     title: "01 Install",
-    problem: "You need a publishing brief before you submit — without juggling five tabs.",
-    solution: "Install ScholarScope once in Chrome or Edge, then pin it to the toolbar.",
+    problem: "A publishing brief before you submit — without juggling five tabs.",
+    solution: "Download the ZIP, Load unpacked in Chrome or Edge, then pin ScholarScope.",
     outputJson: `{
                                     <br />
                                     <span class="light-gold">&#34;status&#34;</span>
@@ -73,9 +72,10 @@ const steps = [
   },
   {
     tab: "Tab 2",
-    title: "02 Detect",
-    problem: "Journal pages bury APC, OA license, and indexing across publisher sites.",
-    solution: "Open SciMAGO, a publisher page, PubMed, or Scholar — the panel detects ISSN or title.",
+    title: "02 Open page",
+    problem: "APC, OA license, and indexing are scattered across journal sites.",
+    solution:
+      "Open SciMAGO, a publisher page, PubMed, or Scholar. No ISSN? Search title or ISSN in the popup.",
     outputJson: `{
                                     <br />
                                     <span class="light-gold">&#34;issn&#34;</span>
@@ -85,21 +85,22 @@ const steps = [
                                     <br />
                                     <span class="light-gold">&#34;source&#34;</span>
                                     :
-                                    <span class="coral">&#34;page&#34;</span>
+                                    <span class="coral">&#34;page | popup&#34;</span>
                                     <br />
                                     }`,
     codeLines: [
       codeLine("1", `<span class="sky-blue">visit</span> journal page`),
       codeLine("2", `<span class="pale-blue">detect</span>(issn || title)`),
-      codeLine("3", `<span class="lavender">await</span> brief.fetch()`),
-      codeLine("4", `<span class="teal">console</span>.<span class="light-gold">log</span>(brief)`),
+      codeLine("3", `<span class="sky-blue">or</span> popup.<span class="pale-blue">search</span>(…)`),
+      codeLine("4", `<span class="lavender">await</span> brief.fetch()`),
     ].join("\n"),
   },
   {
     tab: "Tab 3",
-    title: "03 Brief",
-    problem: "Impact claims and fees are easy to misread without source links.",
-    solution: "Read APC, OA license, subjects, free OpenAlex metrics, and SCImago SJR verify links.",
+    title: "03 Read brief",
+    problem: "Fees and impact claims are easy to misread without source links.",
+    solution:
+      "Read APC, OA license, subjects, free OpenAlex metrics, and SCImago SJR verify links — then decide.",
     outputJson: `{
                                     <br />
                                     <span class="light-gold">&#34;apc&#34;</span>
@@ -122,30 +123,6 @@ const steps = [
       codeLine("2", `<span class="pale-blue">brief</span>.oa + license`),
       codeLine("3", `<span class="pale-blue">brief</span>.openalex`),
       codeLine("4", `<span class="pale-blue">brief</span>.scimagoSjr`),
-    ].join("\n"),
-  },
-  {
-    tab: "Tab 4",
-    title: "04 Search",
-    problem: "Some pages never show an ISSN in the DOM.",
-    solution: "Search by title or ISSN in the ScholarScope popup anytime.",
-    outputJson: `{
-                                    <br />
-                                    <span class="light-gold">&#34;query&#34;</span>
-                                    :
-                                    <span class="coral">&#34;Nature Communications&#34;</span>
-                                    ,
-                                    <br />
-                                    <span class="light-gold">&#34;match&#34;</span>
-                                    :
-                                    <span class="sage-green">true</span>
-                                    <br />
-                                    }`,
-    codeLines: [
-      codeLine("1", `<span class="sky-blue">open</span> popup`),
-      codeLine("2", `<span class="pale-blue">search</span>(title || issn)`),
-      codeLine("3", `<span class="lavender">await</span> doaj + openalex`),
-      codeLine("4", `<span class="teal">show</span> brief`),
     ].join("\n"),
   },
 ];

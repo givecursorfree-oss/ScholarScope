@@ -1009,9 +1009,8 @@ window.Webflow.push(() =&gt; {
                     <div data-current="Tab 1" data-easing="ease-in-out-quad" data-duration-in="300" data-duration-out="100" class="cases-tabs w-tabs">
                       <div class="cases-tabs-menu w-tab-menu">
                         <a data-w-tab="Tab 1" class="cases-tab-link w-inline-block w-tab-link w--current"><div class="cases-title">01 Install</div></a>
-                        <a data-w-tab="Tab 2" class="cases-tab-link w-inline-block w-tab-link"><div class="cases-title">02 Detect</div></a>
-                        <a data-w-tab="Tab 3" class="cases-tab-link w-inline-block w-tab-link"><div class="cases-title">03 Brief</div></a>
-                        <a data-w-tab="Tab 4" class="cases-tab-link w-inline-block w-tab-link"><div class="cases-title">04 Search</div></a>
+                        <a data-w-tab="Tab 2" class="cases-tab-link w-inline-block w-tab-link"><div class="cases-title">02 Open page</div></a>
+                        <a data-w-tab="Tab 3" class="cases-tab-link w-inline-block w-tab-link"><div class="cases-title">03 Read brief</div></a>
                       </div>
                       <div class="cases-tabs-wrapp w-tab-content">
 
@@ -1019,16 +1018,16 @@ window.Webflow.push(() =&gt; {
                           <div class="cases-wrapp">
                             <div class="cases-grid">
                               <div class="cases-card">
-                                <div class="cases-name">Problem</div>
-                                <div class="cases-except">You need a publishing brief before you submit — without juggling five tabs.</div>
+                                <div class="cases-name">You need</div>
+                                <div class="cases-except">A publishing brief before you submit — without juggling five tabs.</div>
                               </div>
                               <div class="cases-card">
-                                <div class="cases-name">Solution</div>
-                                <div class="cases-except">Install ScholarScope once in Chrome or Edge, then pin it to the toolbar.</div>
+                                <div class="cases-name">Do this</div>
+                                <div class="cases-except">Download the ZIP, Load unpacked in Chrome or Edge, then pin ScholarScope.</div>
                               </div>
                               <div class="case-inform">
                                 <div class="cases-info">
-                                  <div class="cases-name">Output</div>
+                                  <div class="cases-name">Result</div>
                                 </div>
                                 <div class="cases-emb">
                                   <div class="cases-code">{
@@ -1068,16 +1067,16 @@ window.Webflow.push(() =&gt; {
                           <div class="cases-wrapp">
                             <div class="cases-grid">
                               <div class="cases-card">
-                                <div class="cases-name">Problem</div>
-                                <div class="cases-except">Journal pages bury APC, OA license, and indexing across publisher sites.</div>
+                                <div class="cases-name">You need</div>
+                                <div class="cases-except">APC, OA license, and indexing are scattered across journal sites.</div>
                               </div>
                               <div class="cases-card">
-                                <div class="cases-name">Solution</div>
-                                <div class="cases-except">Open SciMAGO, a publisher page, PubMed, or Scholar — the panel detects ISSN or title.</div>
+                                <div class="cases-name">Do this</div>
+                                <div class="cases-except">Open SciMAGO, a publisher page, PubMed, or Scholar. No ISSN? Search title or ISSN in the popup.</div>
                               </div>
                               <div class="case-inform">
                                 <div class="cases-info">
-                                  <div class="cases-name">Output</div>
+                                  <div class="cases-name">Result</div>
                                 </div>
                                 <div class="cases-emb">
                                   <div class="cases-code">{
@@ -1089,7 +1088,7 @@ window.Webflow.push(() =&gt; {
                                     <br />
                                     <span class="light-gold">&#34;source&#34;</span>
                                     :
-                                    <span class="coral">&#34;page&#34;</span>
+                                    <span class="coral">&#34;page | popup&#34;</span>
                                     <br />
                                     }</div>
                                 </div>
@@ -1105,8 +1104,8 @@ window.Webflow.push(() =&gt; {
                                 <div class="cases-emb apple">
                                   <div class="cases-code"><span class="moss-green">1</span> <span class="sky-blue">visit</span> journal page<br /></div>
 <div class="cases-code"><span class="moss-green">2</span> <span class="pale-blue">detect</span>(issn || title)<br /></div>
-<div class="cases-code"><span class="moss-green">3</span> <span class="lavender">await</span> brief.fetch()<br /></div>
-<div class="cases-code"><span class="moss-green">4</span> <span class="teal">console</span>.<span class="light-gold">log</span>(brief)<br /></div>
+<div class="cases-code"><span class="moss-green">3</span> <span class="sky-blue">or</span> popup.<span class="pale-blue">search</span>(…)<br /></div>
+<div class="cases-code"><span class="moss-green">4</span> <span class="lavender">await</span> brief.fetch()<br /></div>
                                 </div>
                               </div>
                             </div>
@@ -1117,16 +1116,16 @@ window.Webflow.push(() =&gt; {
                           <div class="cases-wrapp">
                             <div class="cases-grid">
                               <div class="cases-card">
-                                <div class="cases-name">Problem</div>
-                                <div class="cases-except">Impact claims and fees are easy to misread without source links.</div>
+                                <div class="cases-name">You need</div>
+                                <div class="cases-except">Fees and impact claims are easy to misread without source links.</div>
                               </div>
                               <div class="cases-card">
-                                <div class="cases-name">Solution</div>
-                                <div class="cases-except">Read APC, OA license, subjects, free OpenAlex metrics, and SCImago SJR verify links.</div>
+                                <div class="cases-name">Do this</div>
+                                <div class="cases-except">Read APC, OA license, subjects, free OpenAlex metrics, and SCImago SJR verify links — then decide.</div>
                               </div>
                               <div class="case-inform">
                                 <div class="cases-info">
-                                  <div class="cases-name">Output</div>
+                                  <div class="cases-name">Result</div>
                                 </div>
                                 <div class="cases-emb">
                                   <div class="cases-code">{
@@ -1161,55 +1160,6 @@ window.Webflow.push(() =&gt; {
 <div class="cases-code"><span class="moss-green">2</span> <span class="pale-blue">brief</span>.oa + license<br /></div>
 <div class="cases-code"><span class="moss-green">3</span> <span class="pale-blue">brief</span>.openalex<br /></div>
 <div class="cases-code"><span class="moss-green">4</span> <span class="pale-blue">brief</span>.scimagoSjr<br /></div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-
-                        <div data-w-tab="Tab 4" class="cases-tab-pane w-tab-pane">
-                          <div class="cases-wrapp">
-                            <div class="cases-grid">
-                              <div class="cases-card">
-                                <div class="cases-name">Problem</div>
-                                <div class="cases-except">Some pages never show an ISSN in the DOM.</div>
-                              </div>
-                              <div class="cases-card">
-                                <div class="cases-name">Solution</div>
-                                <div class="cases-except">Search by title or ISSN in the ScholarScope popup anytime.</div>
-                              </div>
-                              <div class="case-inform">
-                                <div class="cases-info">
-                                  <div class="cases-name">Output</div>
-                                </div>
-                                <div class="cases-emb">
-                                  <div class="cases-code">{
-                                    <br />
-                                    <span class="light-gold">&#34;query&#34;</span>
-                                    :
-                                    <span class="coral">&#34;Nature Communications&#34;</span>
-                                    ,
-                                    <br />
-                                    <span class="light-gold">&#34;match&#34;</span>
-                                    :
-                                    <span class="sage-green">true</span>
-                                    <br />
-                                    }</div>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="cases-grid">
-                              <div class="case-inform">
-                                <div class="cases-info">
-                                  <div class="cases-dot red"></div>
-                                  <div class="cases-dot yellow"></div>
-                                  <div class="cases-dot green"></div>
-                                </div>
-                                <div class="cases-emb apple">
-                                  <div class="cases-code"><span class="moss-green">1</span> <span class="sky-blue">open</span> popup<br /></div>
-<div class="cases-code"><span class="moss-green">2</span> <span class="pale-blue">search</span>(title || issn)<br /></div>
-<div class="cases-code"><span class="moss-green">3</span> <span class="lavender">await</span> doaj + openalex<br /></div>
-<div class="cases-code"><span class="moss-green">4</span> <span class="teal">show</span> brief<br /></div>
                                 </div>
                               </div>
                             </div>
