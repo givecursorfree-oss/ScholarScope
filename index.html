@@ -318,28 +318,28 @@
         color:var(--color-style--ash,#949494);
       }
 
-      /* Where it works — uploaded icons */
+      /* Where it works — center icon only; keep Toolify satellite cards */
+      #where .apps-logo{
+        display:flex!important;
+        align-items:center!important;
+        justify-content:center!important;
+        padding:3px!important;
+        overflow:hidden!important;
+        background-image:linear-gradient(135deg,#7ec8d4,#ffd7bc,#fff)!important;
+        box-shadow:0 0 80px rgba(126,200,212,.28);
+      }
       #where .apps-icon.apps-main{
         width:100%!important;
         height:100%!important;
-        max-width:140px;
-        max-height:140px;
-        object-fit:contain;
-        border-radius:22px;
-      }
-      #where .apps-logo{
-        display:flex;
-        align-items:center;
-        justify-content:center;
-      }
-      #where .apps-icon:not(.apps-main){
-        object-fit:contain;
-        border-radius:50%;
-        background:#0b0b0b;
-      }
-      #where .apps-card{
-        overflow:hidden;
-        border-radius:50%;
+        padding:0!important;
+        margin:0!important;
+        display:block!important;
+        object-fit:cover!important;
+        object-position:center center!important;
+        border-radius:50%!important;
+        background:transparent!important;
+        background-image:none!important;
+        opacity:1!important;
       }
       /* FAQ — scannable, no card chrome beyond interaction */
       .ss-faq-section{background:transparent}
@@ -1246,59 +1246,59 @@ window.Webflow.push(() =&gt; {
                 <div class="apps-wrap-block">
                   <div class="apps-wrap">
                     <div apps-animation="" class="apps-card apps-s">
-                      <img loading="lazy" src="/where-orbit.png" alt="ScholarScope works here" class="apps-icon apps-s" />
+                      <img loading="lazy" src="https://cdn.prod.website-files.com/69e73a2d97786bbb24018dff/69eb2c0c4daaf9fafd908b05_Integrations%20Logo%2001.svg" alt="Supported research site" class="apps-icon apps-s" />
                     </div>
                     <div apps-animation="" class="apps-card apps-m">
-                      <img loading="lazy" src="/where-orbit.png" alt="ScholarScope works here" class="apps-icon apps-m" />
+                      <img loading="lazy" src="https://cdn.prod.website-files.com/69e73a2d97786bbb24018dff/69eb2c10c500ac02951bcd84_Integrations%20Logo%2002.svg" alt="Supported research site" class="apps-icon apps-m" />
                     </div>
                     <div apps-animation="" class="apps-card apps-l">
-                      <img loading="lazy" src="/where-orbit.png" alt="ScholarScope works here" class="apps-icon apps-l" />
+                      <img loading="lazy" src="https://cdn.prod.website-files.com/69e73a2d97786bbb24018dff/69eb2c1234a2eb10216e4bda_Integrations%20Logo%2003.svg" alt="Supported research site" class="apps-icon apps-l" />
                     </div>
                     <div apps-animation="" class="apps-card apps-m">
-                      <img loading="lazy" src="/where-orbit.png" alt="ScholarScope works here" class="apps-icon apps-m" />
+                      <img loading="lazy" src="https://cdn.prod.website-files.com/69e73a2d97786bbb24018dff/69eb2c17531d4562f9b8e53b_Integrations%20Logo%2004.svg" alt="Supported research site" class="apps-icon apps-m" />
                     </div>
                     <div apps-animation="" class="apps-card apps-s">
-                      <img loading="lazy" src="/where-orbit.png" alt="ScholarScope works here" class="apps-icon apps-s" />
+                      <img loading="lazy" src="https://cdn.prod.website-files.com/69e73a2d97786bbb24018dff/69eb2c190f335dfcece31be4_Integrations%20Logo%2005.svg" alt="Supported research site" class="apps-icon apps-s" />
                     </div>
                   </div>
                   <div data-w-id="bac829f9-d43e-18b5-783f-ce3498c88749" class="apps-wrap">
                     <div apps-animation="" class="apps-card apps-m">
-                      <img loading="lazy" src="/where-orbit.png" alt="ScholarScope works here" class="apps-icon apps-m" />
+                      <img loading="lazy" src="https://cdn.prod.website-files.com/69e73a2d97786bbb24018dff/69eb2c1df78928dfc7812cbd_6dee09ce343241700e2d968d31ddd411_Integrations%20Logo%2006.svg" alt="Supported research site" class="apps-icon apps-m" />
                     </div>
                     <div apps-animation="" class="apps-card apps-l">
-                      <img loading="lazy" src="/where-orbit.png" alt="ScholarScope works here" class="apps-icon apps-l" />
+                      <img loading="lazy" src="https://cdn.prod.website-files.com/69e73a2d97786bbb24018dff/69eb2c1f37e318af8b0ce566_44c8224a4e3cd85b2aea29041518dc7f_Integrations%20Logo%2007.svg" alt="Supported research site" class="apps-icon apps-l" />
                     </div>
                     <div apps-animation="" class="apps-card apps-xl">
-                      <img loading="lazy" src="/where-orbit.png" alt="ScholarScope works here" class="apps-icon apps-xl" />
+                      <img loading="lazy" src="https://cdn.prod.website-files.com/69e73a2d97786bbb24018dff/69eb2c23ca4284035a0fbfb2_86962dbb4b0a98024d17fd2c26b6cdf8_Integrations%20Logo%2008.svg" alt="Supported research site" class="apps-icon apps-xl" />
                     </div>
                     <div apps-animation="" class="apps-logo">
                       <img loading="lazy" src="/where-scholarscope.png" alt="ScholarScope" class="apps-icon apps-main" />
                     </div>
                     <div apps-animation="" class="apps-card apps-xl">
-                      <img loading="lazy" src="/where-orbit.png" alt="ScholarScope works here" class="apps-icon apps-xl" />
+                      <img loading="lazy" src="https://cdn.prod.website-files.com/69e73a2d97786bbb24018dff/69eb2c2685464ef4e8a3ba17_4b4928557d33287f40fceab9032106fe_Integrations%20Logo%2009.svg" alt="Supported research site" class="apps-icon apps-xl" />
                     </div>
                     <div apps-animation="" class="apps-card apps-l">
-                      <img loading="lazy" src="/where-orbit.png" alt="ScholarScope works here" class="apps-icon apps-l" />
+                      <img loading="lazy" src="https://cdn.prod.website-files.com/69e73a2d97786bbb24018dff/69eb2c2a3b5c091bdf160b0f_87a76582667d33a91f9bfbac6ace77a4_Integrations%20Logo%2010.svg" alt="Supported research site" class="apps-icon apps-l" />
                     </div>
                     <div apps-animation="" class="apps-card apps-m">
-                      <img loading="lazy" src="/where-orbit.png" alt="ScholarScope works here" class="apps-icon apps-m" />
+                      <img loading="lazy" src="https://cdn.prod.website-files.com/69e73a2d97786bbb24018dff/69eb2c2d0a5ae9d16c809674_75f9a0c2491558739ce8b995a49f20a6_Integrations%20Logo%2011.svg" alt="Supported research site" class="apps-icon apps-m" />
                     </div>
                   </div>
                   <div class="apps-wrap">
                     <div apps-animation="" class="apps-card apps-s">
-                      <img loading="lazy" src="/where-orbit.png" alt="ScholarScope works here" class="apps-icon apps-s" />
+                      <img loading="lazy" src="https://cdn.prod.website-files.com/69e73a2d97786bbb24018dff/69eb2c30c3faf7942274bf83_Integrations%20Logo%2012.svg" alt="Supported research site" class="apps-icon apps-s" />
                     </div>
                     <div apps-animation="" class="apps-card apps-m">
-                      <img loading="lazy" src="/where-orbit.png" alt="ScholarScope works here" class="apps-icon apps-m" />
+                      <img loading="lazy" src="https://cdn.prod.website-files.com/69e73a2d97786bbb24018dff/69eb2c3410d46e5f4d68768d_Integrations%20Logo%2013.svg" alt="Supported research site" class="apps-icon apps-m" />
                     </div>
                     <div apps-animation="" class="apps-card apps-l">
-                      <img loading="lazy" src="/where-orbit.png" alt="ScholarScope works here" class="apps-icon apps-l" />
+                      <img loading="lazy" src="https://cdn.prod.website-files.com/69e73a2d97786bbb24018dff/69eb2c384928a91248f62f69_Integrations%20Logo%2014.svg" alt="Supported research site" class="apps-icon apps-l" />
                     </div>
                     <div apps-animation="" class="apps-card apps-m">
-                      <img loading="lazy" src="/where-orbit.png" alt="ScholarScope works here" class="apps-icon apps-m" />
+                      <img loading="lazy" src="https://cdn.prod.website-files.com/69e73a2d97786bbb24018dff/69eb2c3bd22c65f903007eba_Integrations%20Logo%2015.svg" alt="Supported research site" class="apps-icon apps-m" />
                     </div>
                     <div apps-animation="" class="apps-card apps-s">
-                      <img loading="lazy" src="/where-orbit.png" alt="ScholarScope works here" class="apps-icon apps-s" />
+                      <img loading="lazy" src="https://cdn.prod.website-files.com/69e73a2d97786bbb24018dff/69eb2c3ed8c6e044278a0629_Integrations%20Logo%2016.svg" alt="Supported research site" class="apps-icon apps-s" />
                     </div>
                   </div>
                 </div>

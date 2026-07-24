@@ -289,18 +289,10 @@ html = html.replace(
   '<section id="where" class="apps-section">'
 );
 
-// Where it works — uploaded ScholarScope glass icon (center) + orbit cube satellites
+// Where it works — only replace center mark with uploaded ScholarScope icon
 html = html.replace(
   /(<img loading="lazy" src=")https:\/\/cdn\.prod\.website-files\.com\/69e73a2d97786bbb24018dff\/69eb30f47b12475b32605f40_6774332cf1f9919e074674c70b765b60_Integrations\.svg(" alt="ScholarScope" class="apps-icon apps-main"\s*\/>)/,
-  "$1/where-scholarscope.png$2"
-);
-html = html.replace(
-  /src="https:\/\/cdn\.prod\.website-files\.com\/69e73a2d97786bbb24018dff\/[^"]*Integrations[^"]*\.svg"/g,
-  'src="/where-orbit.png"'
-);
-html = html.replace(
-  /alt="Supported research site"/g,
-  'alt="ScholarScope works here"'
+  '$1/where-scholarscope.png$2'
 );
 html = html.replace(
   '<section class="rate-section">',
@@ -985,28 +977,28 @@ html = html.replace(
 html = html.replace(
   /\/\* Official source logos in trusted marquee \*\//,
   `${howMosaicCss}
-      /* Where it works — uploaded icons */
+      /* Where it works — center icon only; keep Toolify satellite cards */
+      #where .apps-logo{
+        display:flex!important;
+        align-items:center!important;
+        justify-content:center!important;
+        padding:3px!important;
+        overflow:hidden!important;
+        background-image:linear-gradient(135deg,#7ec8d4,#ffd7bc,#fff)!important;
+        box-shadow:0 0 80px rgba(126,200,212,.28);
+      }
       #where .apps-icon.apps-main{
         width:100%!important;
         height:100%!important;
-        max-width:140px;
-        max-height:140px;
-        object-fit:contain;
-        border-radius:22px;
-      }
-      #where .apps-logo{
-        display:flex;
-        align-items:center;
-        justify-content:center;
-      }
-      #where .apps-icon:not(.apps-main){
-        object-fit:contain;
-        border-radius:50%;
-        background:#0b0b0b;
-      }
-      #where .apps-card{
-        overflow:hidden;
-        border-radius:50%;
+        padding:0!important;
+        margin:0!important;
+        display:block!important;
+        object-fit:cover!important;
+        object-position:center center!important;
+        border-radius:50%!important;
+        background:transparent!important;
+        background-image:none!important;
+        opacity:1!important;
       }
       /* FAQ — scannable, no card chrome beyond interaction */
       .ss-faq-section{background:transparent}
