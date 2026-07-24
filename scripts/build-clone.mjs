@@ -6,7 +6,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { howMosaicHtml, howMosaicCss } from "./how-mosaic.mjs";
+import { howTabsHtml } from "./how-tabs.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const scriptsParent = path.resolve(__dirname, "..");
@@ -126,15 +126,6 @@ const reps = [
   [/Chrome Extensions/g, "02 Detect"],
   [/SaaS Tools/g, "03 Brief"],
   [/Automation Scripts/g, "04 Manual"],
-  [
-    /Building AI features from scratch is time-consuming/g,
-    "PLACEHOLDER_PROBLEM",
-  ],
-  [
-    /Ready-to-use AI endpoints for text generation, analysis, and more/g,
-    "PLACEHOLDER_SOLUTION",
-  ],
-
   [/Request Input/g, "Journal lookup"],
   [/AI Response/g, "Publishing brief"],
 
@@ -748,18 +739,15 @@ html = html.replace(
   "$1Install once, open a journal page, read the brief — or search by ISSN / title anytime.$2"
 );
 
-// Features-style mosaic for How it works (ScholarScope product data)
+// Native Toolify/Webflow cases-tabs (ScholarScope steps — no custom mosaic)
 html = html.replace(
   /<div class="cases-tabs-block">[\s\S]*?<\/div>\s*<\/div>\s*<\/div>\s*<\/div>\s*<\/section>/,
-  `<div class="cases-tabs-block">${howMosaicHtml}</div>
+  `<div class="cases-tabs-block">${howTabsHtml}</div>
             </div>
           </div>
         </div>
         </section>`
 );
-
-html = html.replace(/PLACEHOLDER_PROBLEM/g, "");
-html = html.replace(/PLACEHOLDER_SOLUTION/g, "");
 
 // Feature code chips — extension-accurate (desktop + mobile cards)
 const featureSnippets = [
@@ -982,8 +970,7 @@ html = html.replace(
 // FAQ styles inside existing brand <style> block
 html = html.replace(
   /\/\* Official source logos in trusted marquee \*\//,
-  `${howMosaicCss}
-      /* FAQ — scannable, no card chrome beyond interaction */
+  `/* FAQ — scannable, no card chrome beyond interaction */
       .ss-faq-section{background:transparent}
       .ss-faq{max-width:720px;margin:0 auto;padding:8px 0 24px}
       .ss-faq-eyebrow{font-family:"Plus Jakarta Sans",Lato,system-ui,sans-serif;font-size:.6875rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;opacity:.55;margin:0 0 10px}
