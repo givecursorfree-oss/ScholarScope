@@ -6,7 +6,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { howTabsHtml } from "./how-tabs.mjs";
+import { howMosaicHtml, howMosaicCss } from "./how-mosaic.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const scriptsParent = path.resolve(__dirname, "..");
@@ -739,10 +739,10 @@ html = html.replace(
   "$1Install once, open a journal page, read the brief — or search by ISSN / title anytime.$2"
 );
 
-// Native Toolify/Webflow cases-tabs (ScholarScope steps — no custom mosaic)
+// Bento mosaic How it works (screenshot layout — not Toolify tabs)
 html = html.replace(
   /<div class="cases-tabs-block">[\s\S]*?<\/div>\s*<\/div>\s*<\/div>\s*<\/div>\s*<\/section>/,
-  `<div class="cases-tabs-block">${howTabsHtml}</div>
+  `<div class="cases-tabs-block">${howMosaicHtml}</div>
             </div>
           </div>
         </div>
@@ -970,7 +970,8 @@ html = html.replace(
 // FAQ styles inside existing brand <style> block
 html = html.replace(
   /\/\* Official source logos in trusted marquee \*\//,
-  `/* FAQ — scannable, no card chrome beyond interaction */
+  `${howMosaicCss}
+      /* FAQ — scannable, no card chrome beyond interaction */
       .ss-faq-section{background:transparent}
       .ss-faq{max-width:720px;margin:0 auto;padding:8px 0 24px}
       .ss-faq-eyebrow{font-family:"Plus Jakarta Sans",Lato,system-ui,sans-serif;font-size:.6875rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;opacity:.55;margin:0 0 10px}
