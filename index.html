@@ -318,28 +318,36 @@
         color:var(--color-style--ash,#949494);
       }
 
-      /* Where it works — center icon only; keep Toolify satellite cards */
+      /* Where it works — center mark matches Toolify ring; satellites unchanged */
       #where .apps-logo{
         display:flex!important;
         align-items:center!important;
         justify-content:center!important;
-        padding:3px!important;
+        width:140px!important;
+        height:140px!important;
+        padding:4px!important;
         overflow:hidden!important;
-        background-image:linear-gradient(135deg,#7ec8d4,#ffd7bc,#fff)!important;
-        box-shadow:0 0 80px rgba(126,200,212,.28);
+        border-radius:50%!important;
+        background-image:linear-gradient(135deg,#7ec8d4 0%,#ffd7bc 55%,#fff 100%)!important;
+        box-shadow:0 0 72px rgba(126,200,212,.22);
       }
       #where .apps-icon.apps-main{
         width:100%!important;
         height:100%!important;
-        padding:0!important;
+        padding:10%!important;
         margin:0!important;
         display:block!important;
-        object-fit:cover!important;
+        box-sizing:border-box!important;
+        object-fit:contain!important;
         object-position:center center!important;
         border-radius:50%!important;
-        background:transparent!important;
+        background-color:#0b0b0b!important;
         background-image:none!important;
         opacity:1!important;
+      }
+      #where .apps-card .apps-icon{
+        opacity:.85;
+        object-fit:contain;
       }
       /* FAQ — scannable, no card chrome beyond interaction */
       .ss-faq-section{background:transparent}
