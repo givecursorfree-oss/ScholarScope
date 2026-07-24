@@ -977,14 +977,14 @@ html = html.replace(
 html = html.replace(
   /\/\* Official source logos in trusted marquee \*\//,
   `${howMosaicCss}
-      /* Where it works — center mark matches Toolify ring; satellites unchanged */
+      /* Where it works — fill circular ring so glass flat edges don't show */
       #where .apps-logo{
         display:flex!important;
         align-items:center!important;
         justify-content:center!important;
         width:140px!important;
         height:140px!important;
-        padding:4px!important;
+        padding:3px!important;
         overflow:hidden!important;
         border-radius:50%!important;
         background-image:linear-gradient(135deg,#7ec8d4 0%,#ffd7bc 55%,#fff 100%)!important;
@@ -993,13 +993,15 @@ html = html.replace(
       #where .apps-icon.apps-main{
         width:100%!important;
         height:100%!important;
-        padding:10%!important;
+        padding:0!important;
         margin:0!important;
         display:block!important;
         box-sizing:border-box!important;
-        object-fit:contain!important;
+        object-fit:cover!important;
         object-position:center center!important;
         border-radius:50%!important;
+        transform:scale(1.18);
+        transform-origin:center center;
         background-color:#0b0b0b!important;
         background-image:none!important;
         opacity:1!important;
