@@ -288,6 +288,20 @@ html = html.replace(
   '<section class="apps-section">',
   '<section id="where" class="apps-section">'
 );
+
+// Where it works — uploaded ScholarScope glass icon (center) + orbit cube satellites
+html = html.replace(
+  /(<img loading="lazy" src=")https:\/\/cdn\.prod\.website-files\.com\/69e73a2d97786bbb24018dff\/69eb30f47b12475b32605f40_6774332cf1f9919e074674c70b765b60_Integrations\.svg(" alt="ScholarScope" class="apps-icon apps-main"\s*\/>)/,
+  "$1/where-scholarscope.png$2"
+);
+html = html.replace(
+  /src="https:\/\/cdn\.prod\.website-files\.com\/69e73a2d97786bbb24018dff\/[^"]*Integrations[^"]*\.svg"/g,
+  'src="/where-orbit.png"'
+);
+html = html.replace(
+  /alt="Supported research site"/g,
+  'alt="ScholarScope works here"'
+);
 html = html.replace(
   '<section class="rate-section">',
   '<section id="stories" class="rate-section">'
@@ -971,6 +985,29 @@ html = html.replace(
 html = html.replace(
   /\/\* Official source logos in trusted marquee \*\//,
   `${howMosaicCss}
+      /* Where it works — uploaded icons */
+      #where .apps-icon.apps-main{
+        width:100%!important;
+        height:100%!important;
+        max-width:140px;
+        max-height:140px;
+        object-fit:contain;
+        border-radius:22px;
+      }
+      #where .apps-logo{
+        display:flex;
+        align-items:center;
+        justify-content:center;
+      }
+      #where .apps-icon:not(.apps-main){
+        object-fit:contain;
+        border-radius:50%;
+        background:#0b0b0b;
+      }
+      #where .apps-card{
+        overflow:hidden;
+        border-radius:50%;
+      }
       /* FAQ — scannable, no card chrome beyond interaction */
       .ss-faq-section{background:transparent}
       .ss-faq{max-width:720px;margin:0 auto;padding:8px 0 24px}
