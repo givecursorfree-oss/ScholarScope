@@ -1,0 +1,8 @@
+# ScholarScope marketing site
+User-agent: *
+Allow: /
+
+Disallow: /downloads/*.zip
+Disallow: /downloads/*.json
+
+Sitemap: https://scholarscope.app/sitemap.xml

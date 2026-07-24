@@ -3,12 +3,67 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Install ScholarScope</title>
+    <title>Install ScholarScope for Chrome &amp; Edge</title>
     <meta
       name="description"
-      content="Download the ScholarScope Chrome/Edge extension package and install in one minute."
+      content="Install ScholarScope in Chrome or Edge: download the ZIP, Load unpacked, and get live journal APC, OA, and free impact metrics on SciMAGO and publisher sites."
     />
-    <link rel="icon" href="/favicon.svg" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://scholarscope.app/install.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="ScholarScope" />
+    <meta property="og:title" content="Install ScholarScope for Chrome &amp; Edge" />
+    <meta
+      property="og:description"
+      content="Download one ZIP for Chrome or Edge. Unzip once, Load unpacked, pin ScholarScope — then open a journal page for a live publishing brief."
+    />
+    <meta property="og:url" content="https://scholarscope.app/install.html" />
+    <meta property="og:image" content="https://scholarscope.app/scholarscope-logo.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Install ScholarScope for Chrome &amp; Edge" />
+    <meta
+      name="twitter:description"
+      content="Download one ZIP for Chrome or Edge. Unzip once, Load unpacked, pin ScholarScope."
+    />
+    <meta name="twitter:image" content="https://scholarscope.app/scholarscope-logo.png" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/scholarscope-logo.png" />
+    <meta name="theme-color" content="#0A5F6E" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        "name": "Install ScholarScope Chrome extension",
+        "description": "Install the ScholarScope journal brief extension in Chrome or Microsoft Edge using Load unpacked.",
+        "totalTime": "PT3M",
+        "tool": [
+          { "@type": "HowToTool", "name": "Google Chrome or Microsoft Edge" },
+          { "@type": "HowToTool", "name": "ScholarScope-extension.zip" }
+        ],
+        "step": [
+          {
+            "@type": "HowToStep",
+            "name": "Download the package",
+            "text": "Download ScholarScope-extension.zip from the ScholarScope site."
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Unzip",
+            "text": "Unzip the file so you have one extension folder."
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Enable Developer mode",
+            "text": "Open chrome://extensions or edge://extensions and turn on Developer mode."
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Load unpacked",
+            "text": "Click Load unpacked and select the unzipped ScholarScope folder. Pin the extension."
+          }
+        ]
+      }
+    </script>
     <style>
       :root {
         --ink: #0f1c1a;
@@ -67,6 +122,7 @@
         font-weight: 650;
         text-decoration: none;
         border: 1px solid transparent;
+        min-height: 44px;
       }
       .btn-primary {
         background: var(--accent);
@@ -117,14 +173,20 @@
         font-size: 0.9rem;
         color: var(--muted);
       }
+      .nav {
+        margin-bottom: 20px;
+        font-size: 0.95rem;
+      }
     </style>
   </head>
   <body>
     <main>
+      <p class="nav"><a href="/">← ScholarScope</a> · <a href="/privacy.html">Privacy</a></p>
       <h1>Install ScholarScope</h1>
       <p class="lead">
         Download one extension package for Chrome or Edge. No project folder to
-        keep in sync — unzip once, load that folder, done.
+        keep in sync — unzip once, load that folder, done. Then open SciMAGO or a
+        publisher page for a live APC, OA, and impact brief.
       </p>
 
       <div class="cta-row">
@@ -136,9 +198,17 @@
         >
           Download extension (.zip)
         </a>
+        <a class="btn btn-ghost" href="/#how">How it works</a>
         <a class="btn btn-ghost" href="/">Back to site</a>
       </div>
       <p class="meta" id="pack-meta">Preparing package info…</p>
+
+      <p style="margin:0 0 24px">
+        <a href="/install.html" aria-label="Available in the Chrome Web Store" style="display:inline-block;line-height:0">
+          <img src="/chrome-web-store-badge-border.png" width="206" height="58" alt="Available in the Chrome Web Store" decoding="async" />
+        </a>
+      </p>
+      <p class="note">Google Chrome is a trademark of Google LLC. Follow the <a href="https://developer.chrome.com/docs/webstore/branding" target="_blank" rel="noopener">Chrome Web Store branding guidelines</a>. When your listing is live, set <code>SCHOLARSCOPE_CHROME_STORE_URL</code> so the badge links to it.</p>
 
       <div class="panel">
         <h2>Chrome</h2>
@@ -147,6 +217,7 @@
           <li>Unzip it (you get one folder)</li>
           <li>Open <code>chrome://extensions</code> and turn on Developer mode</li>
           <li>Click <strong>Load unpacked</strong> → select that unzipped folder</li>
+          <li>Pin ScholarScope, then visit a journal page on SciMAGO or a publisher site</li>
         </ol>
       </div>
 
@@ -163,8 +234,9 @@
       <p class="note">
         Browsers block installing custom <code>.crx</code> /
         <code>.extension</code> files from websites. A ZIP package is the
-        official format. For true one-click install and automatic updates,
-        publish the same ZIP to the Chrome Web Store (or Edge Add-ons).
+        official sideload format. For one-click install and automatic updates,
+        publish the same package to the Chrome Web Store (or Edge Add-ons).
+        See also the <a href="/privacy.html">privacy policy</a>.
       </p>
     </main>
     <script>

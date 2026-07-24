@@ -1,6 +1,6 @@
 import { defineConfig } from "vite";
 
-// Exact ScholarScope HTML (static index.html)
+// Static ScholarScope marketing site — public/install.html & privacy.html copy to dist
 export default defineConfig({
   root: ".",
   publicDir: "public",

@@ -1,10 +1,10 @@
 {
-  "name": "ScholarScope",
+  "name": "ScholarScope — Journal APC & OA Brief",
   "version": "1.9.3",
   "file": "ScholarScope-extension.zip",
   "path": "/downloads/ScholarScope-extension.zip",
-  "bytes": 985693,
-  "packedAt": "2026-07-22T19:22:44.228Z",
+  "bytes": 985725,
+  "packedAt": "2026-07-24T03:09:46.125Z",
   "install": {
     "chrome": [
       "Download ScholarScope-extension.zip",

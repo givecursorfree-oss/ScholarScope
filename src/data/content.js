@@ -11,7 +11,7 @@ export const hero = {
   eyebrow: "Chrome extension · Free live APIs",
   titleLine1: "Know the journal",
   titleLine2: "before you submit",
-  except: `${BRAND.name} gives researchers a live publishing brief — APC, open access, subjects, and free impact metrics — while you browse SciMAGO and publisher sites.`,
+  except: `${BRAND.name} gives researchers a live publishing brief — APC, open access, subjects, indexing checks, and free impact metrics — while you browse SciMAGO and publisher sites.`,
   primaryCta: { label: "Get the extension", href: "#install" },
   secondaryCta: { label: "See how it works", href: "#how" },
 };
@@ -29,13 +29,13 @@ export const trusted = {
 export const features = [
   {
     title: "Real APC & publishing fees",
-    body: "Pull DOAJ-reported article processing charges for the journal on screen — not guesses.",
-    code: "bibjson.apc.max → USD / EUR / GBP",
+    body: "Prefer fees shown on the publisher page, then DOAJ, then OpenAlex — not guesses.",
+    code: "page → DOAJ → OpenAlex",
   },
   {
     title: "Open Access + license",
     body: "See OA status and Creative Commons licenses from DOAJ in one glance.",
-    code: "license: CC BY · CC BY-NC-ND",
+    code: "license: CC BY · OA",
   },
   {
     title: "Themes & subjects",
@@ -48,49 +48,68 @@ export const features = [
     code: "2yr_mean_citedness · h_index",
   },
   {
-    title: "SJR on SCImago",
-    body: "One click to the official SCImago journal page for SJR and quartile — no fabricated ranks.",
-    code: "scimagojr.com/journalsearch",
+    title: "Indexing & verify",
+    body: "DOAJ and MEDLINE/PubMed checks, plus one-click links to confirm SJR, Scopus, Scholar, and ISSN.",
+    code: "DOAJ · MEDLINE · SCImago",
   },
   {
     title: "Works where you already search",
-    body: "Auto-detects journals on SciMAGO, publishers, PubMed, and Scholar — or search manually.",
-    code: "ISSN · title fuzzy match",
+    body: "Auto-detect on SciMAGO, DOAJ, publishers, PubMed, and Scholar — or search by ISSN / title.",
+    code: "ISSN · title match",
   },
 ];
 
 export const useCases = [
   {
-    tab: "SciMAGO",
-    problem: "You found a Q1-looking title but don’t know the APC or OA model.",
-    solution: `${BRAND.name} reads the page, matches ISSN/title, and returns a live brief.`,
+    tab: "01 Install",
+    problem:
+      "You need a clear publishing brief before you submit — without five open tabs.",
+    solution:
+      "Download ScholarScope-extension.zip, unzip once, then Load unpacked in Chrome or Edge. Pin it.",
+    output: {
+      title: "chrome://extensions",
+      apc: "Load unpacked",
+      oa: "Pin toolbar",
+      impact: "Ready",
+    },
+  },
+  {
+    tab: "02 Detect",
+    problem:
+      "Jumping between DOAJ, OpenAlex, and SCImago wastes time on every title.",
+    solution:
+      "Open SciMAGO, a publisher site, PubMed, or Scholar. ScholarScope detects ISSN or title on the page.",
+    output: {
+      title: "Auto-detect",
+      apc: "ISSN · title",
+      oa: "30-min cache",
+      impact: "Live lookup",
+    },
+  },
+  {
+    tab: "03 Brief",
+    problem:
+      "You found a title but don’t know APC, OA license, subjects, or free impact.",
+    solution:
+      "Read the brief: fees, OA, subjects, free metrics, indexing checks, and verify links — then decide.",
     output: {
       title: "Nature Communications",
-      apc: "USD 7,350 · EUR 6,150",
+      apc: "USD 7,350",
       oa: "In DOAJ · CC BY",
       impact: "2yr citedness 16.36",
     },
   },
   {
-    tab: "Chrome",
-    problem: "Jumping between DOAJ, OpenAlex, and SCImago wastes time.",
-    solution: "One extension panel. Free APIs. Cached lookups for 30 minutes.",
+    tab: "04 Manual",
+    problem:
+      "The page has no ISSN, or you’re browsing a site without auto-detect.",
+    solution:
+      "Open the ScholarScope popup and search by journal title or ISSN for the same live brief.",
     output: {
-      title: "ScholarScope panel",
-      apc: "DOAJ live",
-      oa: "License chips",
-      impact: "OpenAlex metrics",
-    },
-  },
-  {
-    tab: "Labs",
-    problem: "Students pick predatory or misaligned venues.",
-    solution: "Share a consistent brief: fees, OA, subjects, and legit source links.",
-    output: {
-      title: "Lab checklist",
-      apc: "Declared fees",
-      oa: "DOAJ seal / OA",
-      impact: "Free citedness",
+      title: "Popup search",
+      apc: "ISSN / title",
+      oa: "Same brief",
+      impact: "Verify on SCImago",
     },
   },
 ];
@@ -99,17 +118,17 @@ export const steps = [
   {
     n: "01",
     title: "Install ScholarScope",
-    body: "Load the scholarscope-ext folder unpacked in Chrome. Pin it to your toolbar.",
+    body: "Download the ZIP, unzip once, then Load unpacked in Chrome or Edge. Pin it to your toolbar.",
   },
   {
     n: "02",
     title: "Open a journal page",
-    body: "Browse SciMAGO, a publisher site, or PubMed. The panel detects ISSN or title.",
+    body: "Browse SciMAGO, a publisher site, PubMed, or Scholar — or search by ISSN / title in the popup.",
   },
   {
     n: "03",
     title: "Read the brief",
-    body: "APC, OA, subjects, free impact, and a direct SCImago SJR link — then decide.",
+    body: "APC, OA, subjects, free impact, indexing checks, and a direct SCImago SJR link — then decide.",
   },
 ];
 
@@ -136,11 +155,11 @@ export const testimonials = [
 
 export const install = {
   title: "Install ScholarScope in Chrome",
-  body: "Developer mode → Load unpacked → select the scholarscope-ext folder. Free APIs: DOAJ + OpenAlex. SJR opens on SCImago.",
+  body: "Download ScholarScope-extension.zip → unzip → chrome://extensions → Load unpacked. Free APIs: DOAJ + OpenAlex. SJR opens on SCImago.",
   steps: [
-    "Open chrome://extensions",
-    "Enable Developer mode",
-    "Load unpacked → scholarscope-ext",
-    "Visit scimagojr.com and open the SS panel",
+    "Download and unzip ScholarScope-extension.zip",
+    "Open chrome://extensions and enable Developer mode",
+    "Load unpacked → select the unzipped folder",
+    "Visit scimagojr.com and open the ScholarScope panel",
   ],
 };
