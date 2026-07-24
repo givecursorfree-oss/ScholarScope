@@ -6,6 +6,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { howMosaicHtml, howMosaicCss } from "./how-mosaic.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const scriptsParent = path.resolve(__dirname, "..");
@@ -26,7 +27,7 @@ const publicDir = isMonorepo
 
 /** Production site origin — set SCHOLARSCOPE_SITE_URL when you deploy */
 const SITE_URL = (
-  process.env.SCHOLARSCOPE_SITE_URL || "https://scholarscope.app"
+  process.env.SCHOLARSCOPE_SITE_URL || "https://scholar-scope-eight.vercel.app"
 ).replace(/\/$/, "");
 
 const SEO = {
@@ -337,7 +338,7 @@ html = html.replace(
                   aria-label="Available in the Chrome Web Store"
                 >
                   <img
-                    src="/chrome-web-store-badge-border.png"
+                    src="/chrome-web-store-badge-white.png"
                     width="206"
                     height="58"
                     alt="Available in the Chrome Web Store"
@@ -585,10 +586,10 @@ html = html.replace(
         font-family:"Plus Jakarta Sans",Lato,system-ui,sans-serif;
         font-size:11px;
         line-height:1.4;
-        color:#64748b;
+        color:#94a3b8;
         max-width:36rem;
       }
-      .ss-cws-note a{color:#0A5F6E;text-decoration:underline}
+      .ss-cws-note a{color:#7ec8d4;text-decoration:underline}
     </style>`
 );
 
@@ -747,213 +748,18 @@ html = html.replace(
   "$1Install once, open a journal page, read the brief — or search by ISSN / title anytime.$2"
 );
 
-const howSteps = [
-  {
-    problem:
-      "You need a clear publishing brief before you submit — without five open tabs.",
-    solution:
-      "Download ScholarScope-extension.zip, unzip once, then Load unpacked in Chrome or Edge. Pin it.",
-    output: `{
-<br />
-<span class="light-gold">&#34;step&#34;</span>
-:
-<span class="coral">&#34;install&#34;</span>
-,
-<br />
-<span class="light-gold">&#34;action&#34;</span>
-:
-<span class="coral">&#34;Load unpacked&#34;</span>
-,
-<br />
-<span class="light-gold">&#34;pin&#34;</span>
-:
-<span class="sage-green">true</span>
-<br />
-}`,
-    code: [
-      ['chrome://extensions', 'sky-blue'],
-      ['Developer mode → ON', 'light-gold'],
-      ['Load unpacked → unzipped folder', 'pale-blue'],
-      ['Pin ScholarScope', 'sage-green'],
-    ],
-  },
-  {
-    problem:
-      "Jumping between DOAJ, OpenAlex, and SCImago wastes time on every title.",
-    solution:
-      "Open SciMAGO, a publisher site, PubMed, or Scholar. ScholarScope detects ISSN or title on the page.",
-    output: `{
-<br />
-<span class="light-gold">&#34;detect&#34;</span>
-:
-<span class="coral">&#34;ISSN · title&#34;</span>
-,
-<br />
-<span class="light-gold">&#34;sites&#34;</span>
-:
-<span class="coral">&#34;SciMAGO · publishers · PubMed&#34;</span>
-,
-<br />
-<span class="light-gold">&#34;cache&#34;</span>
-:
-<span class="sage-green">&#34;30 min&#34;</span>
-<br />
-}`,
-    code: [
-      ['Open journal page', 'sky-blue'],
-      ['Panel reads ISSN / title', 'light-gold'],
-      ['Lookup DOAJ + OpenAlex', 'pale-blue'],
-      ['Show live brief', 'sage-green'],
-    ],
-  },
-  {
-    problem:
-      "You found a title but don’t know APC, OA license, subjects, or free impact.",
-    solution:
-      "Read the brief: fees, OA, subjects, free metrics, indexing checks, and verify links — then decide.",
-    output: `{
-<br />
-<span class="light-gold">&#34;title&#34;</span>
-:
-<span class="coral">&#34;Nature Communications&#34;</span>
-,
-<br />
-<span class="light-gold">&#34;apc&#34;</span>
-:
-<span class="coral">&#34;USD 7350&#34;</span>
-,
-<br />
-<span class="light-gold">&#34;oa&#34;</span>
-:
-<span class="sage-green">&#34;DOAJ · CC BY&#34;</span>
-,
-<br />
-<span class="light-gold">&#34;citedness_2yr&#34;</span>
-:
-<span class="pale-blue">16.36</span>
-<br />
-}`,
-    code: [
-      ['fees ← page → DOAJ → OpenAlex', 'sky-blue'],
-      ['oa + license ← DOAJ', 'light-gold'],
-      ['metrics ← OpenAlex', 'pale-blue'],
-      ['SJR → open SCImago', 'sage-green'],
-    ],
-  },
-  {
-    problem:
-      "The page has no ISSN, or you’re browsing a site without auto-detect.",
-    solution:
-      "Open the ScholarScope popup and search by journal title or ISSN for the same live brief.",
-    output: `{
-<br />
-<span class="light-gold">&#34;mode&#34;</span>
-:
-<span class="coral">&#34;manual&#34;</span>
-,
-<br />
-<span class="light-gold">&#34;query&#34;</span>
-:
-<span class="coral">&#34;2041-1723&#34;</span>
-,
-<br />
-<span class="light-gold">&#34;match&#34;</span>
-:
-<span class="sage-green">&#34;ISSN · fuzzy title&#34;</span>
-<br />
-}`,
-    code: [
-      ['Click extension icon', 'sky-blue'],
-      ['Enter ISSN or title', 'light-gold'],
-      ['Fetch live brief', 'pale-blue'],
-      ['Verify on SCImago', 'sage-green'],
-    ],
-  },
-];
-
-function howCodeBlock(lines) {
-  return lines
-    .map(
-      ([text, color], i) =>
-        `<div class="cases-code">
-                                    <span class="moss-green">${i + 1}</span>
-                                    <span class="${color}">${text}</span>
-                                    <br />
-                                  </div>`
-    )
-    .join("\n");
-}
-
-function howTabBody(step) {
-  return `<div class="cases-wrapp">
-                            <div class="cases-grid">
-                              <div class="cases-card">
-                                <div class="cases-name">
-                                  Problem
-                                </div>
-                                <div class="cases-except">
-                                  ${step.problem}
-                                </div>
-                              </div>
-                              <div class="cases-card">
-                                <div class="cases-name">
-                                  Solution
-                                </div>
-                                <div class="cases-except">
-                                  ${step.solution}
-                                </div>
-                              </div>
-                              <div class="case-inform">
-                                <div class="cases-info">
-                                  <div class="cases-name">
-                                    Output
-                                  </div>
-                                </div>
-                                <div class="cases-emb">
-                                  <div class="cases-code">
-                                    ${step.output}
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="cases-grid">
-                              <div class="case-inform">
-                                <div class="cases-info">
-                                  <div class="cases-dot red">
-                                  </div>
-                                  <div class="cases-dot yellow">
-                                  </div>
-                                  <div class="cases-dot green">
-                                  </div>
-                                </div>
-                                <div class="cases-emb apple">
-                                  ${howCodeBlock(step.code)}
-                                </div>
-                              </div>
-                            </div>
-                          </div>`;
-}
-
+// Features-style mosaic for How it works (ScholarScope product data)
 html = html.replace(
-  /(<div data-w-tab="Tab 1" class="cases-tab-pane w-tab-pane w--tab-active">)[\s\S]*?(<\/div>\s*<div data-w-tab="Tab 2")/,
-  `$1\n                          ${howTabBody(howSteps[0])}\n                        $2`
-);
-html = html.replace(
-  /(<div data-w-tab="Tab 2" class="cases-tab-pane w-tab-pane">)[\s\S]*?(<\/div>\s*<div data-w-tab="Tab 3")/,
-  `$1\n                          ${howTabBody(howSteps[1])}\n                        $2`
-);
-html = html.replace(
-  /(<div data-w-tab="Tab 3" class="cases-tab-pane w-tab-pane">)[\s\S]*?(<\/div>\s*<div data-w-tab="Tab 4")/,
-  `$1\n                          ${howTabBody(howSteps[2])}\n                        $2`
-);
-html = html.replace(
-  /(<div data-w-tab="Tab 4" class="cases-tab-pane w-tab-pane">)[\s\S]*?(<\/div>\s*<\/div>\s*<\/div>\s*<\/div>\s*<\/div>\s*<\/div>\s*<\/div>\s*<\/section>)/,
-  `$1\n                          ${howTabBody(howSteps[3])}\n                        $2`
+  /<div class="cases-tabs-block">[\s\S]*?<\/div>\s*<\/div>\s*<\/div>\s*<\/div>\s*<\/section>/,
+  `<div class="cases-tabs-block">${howMosaicHtml}</div>
+            </div>
+          </div>
+        </div>
+        </section>`
 );
 
-// Scrub leftover placeholders if any pane missed
-html = html.replace(/PLACEHOLDER_PROBLEM/g, howSteps[0].problem);
-html = html.replace(/PLACEHOLDER_SOLUTION/g, howSteps[0].solution);
+html = html.replace(/PLACEHOLDER_PROBLEM/g, "");
+html = html.replace(/PLACEHOLDER_SOLUTION/g, "");
 
 // Feature code chips — extension-accurate (desktop + mobile cards)
 const featureSnippets = [
@@ -1176,7 +982,8 @@ html = html.replace(
 // FAQ styles inside existing brand <style> block
 html = html.replace(
   /\/\* Official source logos in trusted marquee \*\//,
-  `/* FAQ — scannable, no card chrome beyond interaction */
+  `${howMosaicCss}
+      /* FAQ — scannable, no card chrome beyond interaction */
       .ss-faq-section{background:transparent}
       .ss-faq{max-width:720px;margin:0 auto;padding:8px 0 24px}
       .ss-faq-eyebrow{font-family:"Plus Jakarta Sans",Lato,system-ui,sans-serif;font-size:.6875rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;opacity:.55;margin:0 0 10px}

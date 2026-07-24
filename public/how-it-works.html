@@ -9,64 +9,32 @@
       content="How ScholarScope works in three steps: install the Chrome extension, open a journal page or search by ISSN, and read a live APC, OA, and impact brief."
     />
     <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://scholarscope.app/how-it-works.html" />
-    <meta property="og:type" content="article" />
-    <meta property="og:site_name" content="ScholarScope" />
-    <meta property="og:title" content="How ScholarScope Works — Install, Detect, Brief" />
-    <meta
-      property="og:description"
-      content="Install once, open a journal page, read the brief — or search by ISSN / title anytime."
-    />
-    <meta property="og:url" content="https://scholarscope.app/how-it-works.html" />
-    <meta property="og:image" content="https://scholarscope.app/hero-scholarscope.png" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="How ScholarScope Works — Install, Detect, Brief" />
-    <meta
-      name="twitter:description"
-      content="Install once, open a journal page, read the brief — or search by ISSN / title anytime."
-    />
-    <meta name="twitter:image" content="https://scholarscope.app/hero-scholarscope.png" />
+    <link rel="canonical" href="https://scholar-scope-eight.vercel.app/how-it-works.html" />
     <meta name="theme-color" content="#0A5F6E" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <link rel="apple-touch-icon" href="/scholarscope-logo.png" />
     <link rel="stylesheet" href="/seo-pages.css" />
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@graph": [
-          {
-            "@type": "BreadcrumbList",
-            "itemListElement": [
-              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://scholarscope.app/" },
-              { "@type": "ListItem", "position": 2, "name": "How it works", "item": "https://scholarscope.app/how-it-works.html" }
-            ]
-          },
-          {
-            "@type": "HowTo",
-            "name": "Get a journal publishing brief with ScholarScope",
-            "description": "Install ScholarScope, open a journal page or search by ISSN, and read APC, OA, subjects, and free impact metrics.",
-            "totalTime": "PT5M",
-            "step": [
-              {
-                "@type": "HowToStep",
-                "name": "Install ScholarScope",
-                "text": "Download ScholarScope-extension.zip, unzip once, then Load unpacked in Chrome or Edge and pin the extension."
-              },
-              {
-                "@type": "HowToStep",
-                "name": "Open a journal page or search",
-                "text": "Browse SciMAGO, DOAJ, a publisher site, PubMed, or Google Scholar — or search by ISSN / title in the popup."
-              },
-              {
-                "@type": "HowToStep",
-                "name": "Read the brief",
-                "text": "Review fees, open access and license, subjects, free OpenAlex metrics, indexing checks, and verify SJR on SCImago."
-              }
-            ]
-          }
-        ]
-      }
-    </script>
+    <style>
+      .ss-how-mosaic{display:grid;gap:8px;grid-template-columns:1fr;max-width:64rem;margin:28px auto 0}
+      @media (min-width:640px){.ss-how-mosaic{grid-template-columns:repeat(5,1fr)}.ss-how-wide{grid-column:span 3}.ss-how-narrow{grid-column:span 2}.ss-how-wide:first-child{border-radius:14px 0 0 0}.ss-how-narrow:nth-child(2){border-radius:0 14px 0 0}.ss-how-narrow:nth-child(3){border-radius:0 0 0 14px}.ss-how-wide:last-child{border-radius:0 0 14px 0}}
+      .ss-how-card{background:#fff;border:1px solid rgba(15,28,26,.12);overflow:hidden}
+      .ss-how-copy{padding:22px 22px 12px}
+      .ss-how-kicker{font-weight:650;margin:0 0 8px}
+      .ss-how-body,.ss-how-headline{margin:0;line-height:1.5;opacity:.78;font-size:.95rem}
+      .ss-how-headline{padding:22px 22px 16px;font-weight:650;font-size:1.15rem;text-align:center;text-wrap:balance;opacity:1}
+      .ss-how-center{display:flex;flex-direction:column;align-items:center;padding-bottom:28px}
+      .ss-how-media{padding:0 0 0 22px}
+      .ss-how-media img{display:block;width:100%;height:auto;border-radius:12px 0 0 0;border-top:1px solid rgba(15,28,26,.1);border-left:1px solid rgba(15,28,26,.1);object-fit:cover;aspect-ratio:3/2}
+      .ss-how-media-sm{padding:0 0 18px}.ss-how-media-sm img{border-radius:0 12px 0 0;aspect-ratio:76/59;border-left:0;border-right:1px solid rgba(15,28,26,.1)}
+      .ss-how-keys{display:flex;gap:16px;justify-content:center}
+      .ss-how-key{position:relative;width:64px;height:64px;border-radius:7px;border:1px solid rgba(15,28,26,.14);background:rgba(231,240,237,.55);display:flex;align-items:flex-end;justify-content:flex-start;padding:10px;color:#0A5F6E;box-shadow:0 8px 20px rgba(15,28,26,.08)}
+      .ss-how-key span{position:absolute;top:6px;right:8px;font-size:.75rem;font-weight:650}
+      .ss-how-key-book{align-items:center;justify-content:center}
+      .ss-how-logos{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;padding:8px 22px 22px}
+      @media (min-width:768px){.ss-how-logos{grid-template-columns:repeat(6,1fr);padding:8px 36px 36px}.ss-how-copy{padding:28px 36px 12px}}
+      .ss-how-slot{aspect-ratio:1;border-radius:10px;border:1px solid rgba(15,28,26,.12);display:flex;align-items:center;justify-content:center;background:rgba(231,240,237,.45)}
+      .ss-how-slot.dashed{border-style:dashed;background:transparent}
+      .ss-how-slot img{width:32px;height:32px;object-fit:contain}
+    </style>
   </head>
   <body>
     <header class="site-header">
@@ -84,57 +52,52 @@
       <p class="crumbs"><a href="/">Home</a> / How it works</p>
       <h1>How ScholarScope works</h1>
       <p class="lead">
-        Three confident steps to a live publishing brief — APC, open access,
-        subjects, free impact metrics, and verify links — without jumping between
-        five tabs.
+        Install once, open a journal page, read the brief — or search by ISSN / title anytime.
       </p>
 
-      <div class="panel">
-        <ol class="steps">
-          <li>
-            <h2>Install ScholarScope</h2>
-            <p>
-              Download <code>ScholarScope-extension.zip</code>, unzip once, open
-              <code>chrome://extensions</code> or <code>edge://extensions</code>,
-              enable Developer mode, then <strong>Load unpacked</strong>. Pin the
-              extension to your toolbar.
-            </p>
-            <p><a href="/install.html">Open the full install guide →</a></p>
-          </li>
-          <li>
-            <h2>Open a journal page — or search manually</h2>
-            <p>
-              Browse SciMAGO, DOAJ, major publishers, PubMed, or Google Scholar.
-              ScholarScope detects ISSN or title on the page. If the page has no
-              ISSN, open the popup and search by title or ISSN.
-            </p>
-          </li>
-          <li>
-            <h2>Read the brief and decide</h2>
-            <p>
-              Review live fees (page → DOAJ → OpenAlex), OA and Creative Commons
-              licenses, subjects, free OpenAlex metrics (not Clarivate IF),
-              indexing checks, and one-click links to confirm SJR on SCImago.
-            </p>
-          </li>
-        </ol>
-      </div>
-
-      <div class="panel">
-        <h2>What you get in the brief</h2>
-        <ul>
-          <li>Article processing charges and other listed publishing fees</li>
-          <li>Open access status and license chips from DOAJ when indexed</li>
-          <li>Subjects and OpenAlex topics for field fit</li>
-          <li>2-year mean citedness, h-index, and i10 — labeled honestly</li>
-          <li>DOAJ / MEDLINE checks plus verify links for SJR, Scopus, Scholar, ISSN</li>
-        </ul>
+      <div class="ss-how-mosaic" role="list">
+        <article class="ss-how-card ss-how-wide" role="listitem">
+          <div class="ss-how-copy">
+            <p class="ss-how-kicker">01 · Install ScholarScope</p>
+            <p class="ss-how-body">Download the ZIP, unzip once, then Load unpacked in Chrome or Edge. Pin it to your toolbar.</p>
+          </div>
+          <div class="ss-how-media">
+            <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Researcher reviewing journal options on a laptop" width="1207" height="800" loading="lazy" />
+          </div>
+        </article>
+        <article class="ss-how-card ss-how-narrow" role="listitem">
+          <p class="ss-how-headline">02 · Open a journal page — SciMAGO, publishers, PubMed, or Scholar.</p>
+          <div class="ss-how-media ss-how-media-sm">
+            <img src="https://images.unsplash.com/photo-1532012197267-da84d127e765?auto=format&amp;fit=crop&amp;w=900&amp;q=80" alt="Academic books and journals" width="900" height="700" loading="lazy" />
+          </div>
+        </article>
+        <article class="ss-how-card ss-how-narrow ss-how-center" role="listitem">
+          <p class="ss-how-headline">No ISSN on the page? Search by title or ISSN in the popup.</p>
+          <div class="ss-how-keys" aria-hidden="true">
+            <div class="ss-how-key"><span>SS</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></div>
+            <div class="ss-how-key ss-how-key-book"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
+          </div>
+        </article>
+        <article class="ss-how-card ss-how-wide" role="listitem">
+          <div class="ss-how-copy">
+            <p class="ss-how-kicker">03 · Read the brief</p>
+            <p class="ss-how-body">APC, OA license, subjects, free OpenAlex metrics, indexing checks, and a SCImago SJR verify link — then decide.</p>
+          </div>
+          <div class="ss-how-logos">
+            <div class="ss-how-slot dashed"></div>
+            <div class="ss-how-slot"><img src="/trusted/doaj.svg" alt="DOAJ" width="32" height="32" /></div>
+            <div class="ss-how-slot dashed"></div>
+            <div class="ss-how-slot"><img src="/trusted/openalex.png" alt="OpenAlex" width="32" height="32" /></div>
+            <div class="ss-how-slot dashed"></div>
+            <div class="ss-how-slot"><img src="/trusted/scimago.svg" alt="SCImago" width="32" height="32" /></div>
+          </div>
+        </article>
       </div>
 
       <div class="cta-row">
-        <a class="btn btn-primary" href="/downloads/ScholarScope-extension.zip" download="ScholarScope-extension.zip">Download extension</a>
+        <a class="btn btn-primary" href="/install.html">Install ScholarScope</a>
         <a class="btn btn-ghost" href="/features.html">See features</a>
-        <a class="btn btn-ghost" href="/journal-apc.html">Journal APC guide</a>
+        <a class="btn btn-ghost" href="/app.html">React preview</a>
       </div>
     </main>
     <footer class="site-footer">
@@ -142,8 +105,7 @@
         <div>© 2026 ScholarScope · Decide where to publish — with evidence</div>
         <div class="related">
           <a href="/privacy.html">Privacy</a>
-          <a href="https://doaj.org/" rel="noopener" target="_blank">DOAJ</a>
-          <a href="https://www.scimagojr.com/" rel="noopener" target="_blank">SCImago</a>
+          <a href="/journal-apc.html">APC guide</a>
         </div>
       </div>
     </footer>

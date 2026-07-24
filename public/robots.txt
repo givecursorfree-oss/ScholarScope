@@ -5,4 +5,4 @@ Allow: /
 Disallow: /downloads/*.zip
 Disallow: /downloads/*.json
 
-Sitemap: https://scholarscope.app/sitemap.xml
+Sitemap: https://scholar-scope-eight.vercel.app/sitemap.xml
