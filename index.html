@@ -417,6 +417,35 @@
         max-width:36rem;
       }
       .ss-cws-note a{color:#7ec8d4;text-decoration:underline}
+      .ss-install-guide-link{
+        display:inline-flex!important;
+        align-items:center;
+        min-height:44px;
+        padding:12px 18px;
+        border-radius:10px;
+        border:1px solid rgba(126,200,212,.35);
+        background:rgba(10,95,110,.35);
+        color:#e8efec!important;
+        font-family:"Plus Jakarta Sans",Lato,system-ui,sans-serif;
+        font-size:.95rem;
+        font-weight:650;
+        line-height:1.3;
+        text-decoration:none!important;
+      }
+      .ss-install-guide-link:hover{opacity:.92;border-color:rgba(126,200,212,.6)}
+      #where .apps-card .apps-icon{
+        opacity:.9!important;
+        object-fit:contain!important;
+        filter:none;
+        max-width:72%;
+        max-height:72%;
+      }
+      .ss-evidence{max-width:40rem;margin:0 auto;text-align:left}
+      .ss-evidence-eyebrow{font-size:.6875rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;opacity:.55;margin:0 0 10px}
+      .ss-evidence-title{font-size:clamp(1.5rem,3vw,2rem);letter-spacing:-.03em;line-height:1.15;margin:0 0 12px}
+      .ss-evidence-lede{opacity:.78;line-height:1.55;margin:0 0 18px}
+      .ss-evidence-actions{display:flex;flex-wrap:wrap;gap:14px 22px;margin:0}
+      .ss-evidence-actions a{color:#7ec8d4;font-weight:650;min-height:44px;display:inline-flex;align-items:center}
     </style>
     <div class="page-wrapper">
       <div class="global-scripts w-embed w-script">
@@ -478,13 +507,13 @@ window.Webflow.push(() =&gt; {
                 <a aria-label="Journal APC guide" href="/journal-apc.html" class="header-menu-link w-nav-link">APC guide</a>
                 <div class="header-button-block display-show-for-mobile">
                   <div class="header-button">
-                    <a aria-label="Link Block" data-wf--button--variant="linear" data-w-id="fc156370-34f4-2a68-6ec1-1e88277b66e3" href="/downloads/ScholarScope-extension.zip" download="ScholarScope-extension.zip" class="button w-inline-block">                    <div class="button-block">
+                    <a aria-label="Link Block" data-wf--button--variant="linear" data-w-id="fc156370-34f4-2a68-6ec1-1e88277b66e3" href="/install.html" class="button w-inline-block">                    <div class="button-block">
                       <div class="button-text-block">
                         <div class="button-text">
-                          Install Extension
+                          Install guide
                         </div>
                         <div class="button-text">
-                          Install Extension
+                          Install guide
                         </div>
                       </div>
                       <div class="button-icon-block">
@@ -524,10 +553,10 @@ window.Webflow.push(() =&gt; {
                 <a aria-label="Link Block" data-wf--button--variant="navbar" data-w-id="fc156370-34f4-2a68-6ec1-1e88277b66e3" href="#install" class="button w-variant-725eef10-d045-2729-2624-4f072066a1eb w-inline-block">                <div class="button-block">
                   <div class="button-text-block">
                     <div class="button-text">
-                      Install Extension
+                      Install guide
                     </div>
                     <div class="button-text">
-                      Install Extension
+                      Install guide
                     </div>
                   </div>
                   <div class="button-icon-block">
@@ -600,13 +629,13 @@ window.Webflow.push(() =&gt; {
               </div>
               <div class="hero-button-block">
                 <div hero-animation="" class="hero-button linear-button">
-                  <a aria-label="Link Block" data-wf--button--variant="linear" data-w-id="fc156370-34f4-2a68-6ec1-1e88277b66e3" href="/downloads/ScholarScope-extension.zip" download="ScholarScope-extension.zip" class="button w-inline-block">                  <div class="button-block">
+                  <a aria-label="Link Block" data-wf--button--variant="linear" data-w-id="fc156370-34f4-2a68-6ec1-1e88277b66e3" href="/install.html" class="button w-inline-block">                  <div class="button-block">
                     <div class="button-text-block">
                       <div class="button-text">
-                        Install Extension
+                        Install guide
                       </div>
                       <div class="button-text">
-                        Install Extension
+                        Install guide
                       </div>
                     </div>
                     <div class="button-icon-block">
@@ -680,21 +709,10 @@ window.Webflow.push(() =&gt; {
               </div>
             
               <div class="ss-cws-badge-wrap">
-                <a
-                  class="ss-cws-badge"
-                  href="/install.html"
-                  
-                  aria-label="Available in the Chrome Web Store"
-                >
-                  <img
-                    src="/chrome-web-store-badge-white.png"
-                    width="206"
-                    height="58"
-                    alt="Available in the Chrome Web Store"
-                    decoding="async"
-                  />
+                <a class="ss-cws-badge ss-install-guide-link" href="/install.html">
+                  Download for Chrome or Edge · Load unpacked
                 </a>
-                <p class="ss-cws-note">Google Chrome is a trademark of Google LLC.</p>
+                <p class="ss-cws-note">Not on the Chrome Web Store yet — unzip once, then Load unpacked. <a href="/downloads/ScholarScope-extension.zip" download="ScholarScope-extension.zip">Get the ZIP</a></p>
               </div>
             </div>
           </div>
@@ -778,7 +796,7 @@ window.Webflow.push(() =&gt; {
                     </div>
                     <div class="section-except-block w-variant-c15fe566-ee42-c1b9-df56-8080b0c999e1">
                       <div text-animation="" class="section-except">
-                        Live APC, OA licenses, subjects, indexing checks, and free OpenAlex metrics — with SJR verified on SCImago.
+                        Live APC, OA licenses, subjects, indexing checks, and free OpenAlex metrics — with a SCImago SJR verify link.
                       </div>
                     </div>
                   </div>
@@ -1256,59 +1274,59 @@ window.Webflow.push(() =&gt; {
                 <div class="apps-wrap-block">
                   <div class="apps-wrap">
                     <div apps-animation="" class="apps-card apps-s">
-                      <img loading="lazy" src="https://cdn.prod.website-files.com/69e73a2d97786bbb24018dff/69eb2c0c4daaf9fafd908b05_Integrations%20Logo%2001.svg" alt="Supported research site" class="apps-icon apps-s" />
+                      <img loading="lazy" src="/trusted/doaj.svg" alt="DOAJ" class="apps-icon apps-s" />
                     </div>
                     <div apps-animation="" class="apps-card apps-m">
-                      <img loading="lazy" src="https://cdn.prod.website-files.com/69e73a2d97786bbb24018dff/69eb2c10c500ac02951bcd84_Integrations%20Logo%2002.svg" alt="Supported research site" class="apps-icon apps-m" />
+                      <img loading="lazy" src="/trusted/openalex.png" alt="OpenAlex" class="apps-icon apps-m" />
                     </div>
                     <div apps-animation="" class="apps-card apps-l">
-                      <img loading="lazy" src="https://cdn.prod.website-files.com/69e73a2d97786bbb24018dff/69eb2c1234a2eb10216e4bda_Integrations%20Logo%2003.svg" alt="Supported research site" class="apps-icon apps-l" />
+                      <img loading="lazy" src="/trusted/scimago.svg" alt="SCImago" class="apps-icon apps-l" />
                     </div>
                     <div apps-animation="" class="apps-card apps-m">
-                      <img loading="lazy" src="https://cdn.prod.website-files.com/69e73a2d97786bbb24018dff/69eb2c17531d4562f9b8e53b_Integrations%20Logo%2004.svg" alt="Supported research site" class="apps-icon apps-m" />
+                      <img loading="lazy" src="/trusted/nlm-pubmed.svg" alt="PubMed" class="apps-icon apps-m" />
                     </div>
                     <div apps-animation="" class="apps-card apps-s">
-                      <img loading="lazy" src="https://cdn.prod.website-files.com/69e73a2d97786bbb24018dff/69eb2c190f335dfcece31be4_Integrations%20Logo%2005.svg" alt="Supported research site" class="apps-icon apps-s" />
+                      <img loading="lazy" src="/trusted/doaj-white.svg" alt="DOAJ" class="apps-icon apps-s" />
                     </div>
                   </div>
                   <div data-w-id="bac829f9-d43e-18b5-783f-ce3498c88749" class="apps-wrap">
                     <div apps-animation="" class="apps-card apps-m">
-                      <img loading="lazy" src="https://cdn.prod.website-files.com/69e73a2d97786bbb24018dff/69eb2c1df78928dfc7812cbd_6dee09ce343241700e2d968d31ddd411_Integrations%20Logo%2006.svg" alt="Supported research site" class="apps-icon apps-m" />
+                      <img loading="lazy" src="/trusted/openalex.png" alt="OpenAlex" class="apps-icon apps-m" />
                     </div>
                     <div apps-animation="" class="apps-card apps-l">
-                      <img loading="lazy" src="https://cdn.prod.website-files.com/69e73a2d97786bbb24018dff/69eb2c1f37e318af8b0ce566_44c8224a4e3cd85b2aea29041518dc7f_Integrations%20Logo%2007.svg" alt="Supported research site" class="apps-icon apps-l" />
+                      <img loading="lazy" src="/trusted/scimago.svg" alt="SCImago" class="apps-icon apps-l" />
                     </div>
                     <div apps-animation="" class="apps-card apps-xl">
-                      <img loading="lazy" src="https://cdn.prod.website-files.com/69e73a2d97786bbb24018dff/69eb2c23ca4284035a0fbfb2_86962dbb4b0a98024d17fd2c26b6cdf8_Integrations%20Logo%2008.svg" alt="Supported research site" class="apps-icon apps-xl" />
+                      <img loading="lazy" src="/trusted/nlm-pubmed.svg" alt="PubMed" class="apps-icon apps-xl" />
                     </div>
                     <div apps-animation="" class="apps-logo">
                       <img loading="lazy" src="/where-scholarscope.png" alt="ScholarScope" class="apps-icon apps-main" />
                     </div>
                     <div apps-animation="" class="apps-card apps-xl">
-                      <img loading="lazy" src="https://cdn.prod.website-files.com/69e73a2d97786bbb24018dff/69eb2c2685464ef4e8a3ba17_4b4928557d33287f40fceab9032106fe_Integrations%20Logo%2009.svg" alt="Supported research site" class="apps-icon apps-xl" />
+                      <img loading="lazy" src="/trusted/doaj.svg" alt="DOAJ" class="apps-icon apps-xl" />
                     </div>
                     <div apps-animation="" class="apps-card apps-l">
-                      <img loading="lazy" src="https://cdn.prod.website-files.com/69e73a2d97786bbb24018dff/69eb2c2a3b5c091bdf160b0f_87a76582667d33a91f9bfbac6ace77a4_Integrations%20Logo%2010.svg" alt="Supported research site" class="apps-icon apps-l" />
+                      <img loading="lazy" src="/trusted/openalex.png" alt="OpenAlex" class="apps-icon apps-l" />
                     </div>
                     <div apps-animation="" class="apps-card apps-m">
-                      <img loading="lazy" src="https://cdn.prod.website-files.com/69e73a2d97786bbb24018dff/69eb2c2d0a5ae9d16c809674_75f9a0c2491558739ce8b995a49f20a6_Integrations%20Logo%2011.svg" alt="Supported research site" class="apps-icon apps-m" />
+                      <img loading="lazy" src="/trusted/scimago.svg" alt="SCImago" class="apps-icon apps-m" />
                     </div>
                   </div>
                   <div class="apps-wrap">
                     <div apps-animation="" class="apps-card apps-s">
-                      <img loading="lazy" src="https://cdn.prod.website-files.com/69e73a2d97786bbb24018dff/69eb2c30c3faf7942274bf83_Integrations%20Logo%2012.svg" alt="Supported research site" class="apps-icon apps-s" />
+                      <img loading="lazy" src="/trusted/nlm-pubmed.svg" alt="PubMed" class="apps-icon apps-s" />
                     </div>
                     <div apps-animation="" class="apps-card apps-m">
-                      <img loading="lazy" src="https://cdn.prod.website-files.com/69e73a2d97786bbb24018dff/69eb2c3410d46e5f4d68768d_Integrations%20Logo%2013.svg" alt="Supported research site" class="apps-icon apps-m" />
+                      <img loading="lazy" src="/trusted/doaj.svg" alt="DOAJ" class="apps-icon apps-m" />
                     </div>
                     <div apps-animation="" class="apps-card apps-l">
-                      <img loading="lazy" src="https://cdn.prod.website-files.com/69e73a2d97786bbb24018dff/69eb2c384928a91248f62f69_Integrations%20Logo%2014.svg" alt="Supported research site" class="apps-icon apps-l" />
+                      <img loading="lazy" src="/trusted/openalex.png" alt="OpenAlex" class="apps-icon apps-l" />
                     </div>
                     <div apps-animation="" class="apps-card apps-m">
-                      <img loading="lazy" src="https://cdn.prod.website-files.com/69e73a2d97786bbb24018dff/69eb2c3bd22c65f903007eba_Integrations%20Logo%2015.svg" alt="Supported research site" class="apps-icon apps-m" />
+                      <img loading="lazy" src="/trusted/scimago.svg" alt="SCImago" class="apps-icon apps-m" />
                     </div>
                     <div apps-animation="" class="apps-card apps-s">
-                      <img loading="lazy" src="https://cdn.prod.website-files.com/69e73a2d97786bbb24018dff/69eb2c3ed8c6e044278a0629_Integrations%20Logo%2016.svg" alt="Supported research site" class="apps-icon apps-s" />
+                      <img loading="lazy" src="/trusted/nlm-pubmed.svg" alt="PubMed" class="apps-icon apps-s" />
                     </div>
                   </div>
                 </div>
@@ -1389,100 +1407,17 @@ window.Webflow.push(() =&gt; {
         </section>
 
         <section id="stories" class="rate-section">
-          <div class="section-space end-space">
+          <div class="section-space">
             <div class="w-layout-blockcontainer main-container w-container">
-              <div class="rate-block">
-                <div class="rate-text-block">
-                  <div class="rate-text">
-                    <div data-wf--section-text-block--variant="base" class="section-text-block">
-                      <div class="section-info-block">
-                        <div data-w-id="2f911bd3-67b6-4d27-dd88-dbfaa3182e4b" class="section-info">
-                          <div class="section-info-wrap">
-                            <img alt="Star" loading="lazy" src="https://cdn.prod.website-files.com/69e73a2d97786bbb24018dff/69e9a1850073960ff2b6a682_Star.svg" class="section-info-icon" />
-                            <div class="section-info-text">
-                              Testimonials
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div section-title="" class="section-title-block">
-                        <h2 text-animation="" class="section-title">
-                          Trusted by researchers
-                        </h2>
-                      </div>
-                      <div class="section-except-block">
-                        <div text-animation="" class="section-except">Honest free metrics and source links — so labs and students decide where to publish with evidence.</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="rate-wrap-block">
-                  <div class="rate-wrap">
-                    <div rate-left="" class="rate-card">
-                      <img src="https://cdn.prod.website-files.com/69e73a2d97786bbb24018dff/69eb627c0abe4082e3735bf5_5%20Star.svg" loading="lazy" alt="5 Star" class="rate-star" />
-                      <div class="rate-info">
-                        <div class="rate-except">
-                          &#34;ScholarScope showed APC and OA without five tabs. The SCImago link keeps rankings honest.&#34;
-                        </div>
-                        <div class="rate-author">
-                          <div class="rate-image">
-                            <img src="https://cdn.prod.website-files.com/69e73a2d97786bbb24018dff/69eb6194a014b852928442a8_c45402bbfbdee8251cd3e7df19323364_Sarah%20Chen.webp" loading="lazy" alt="Dr. Amina Rahman" class="rate-icon" />
-                          </div>
-                          <div class="rate-wrapp">
-                            <div class="rate-title">
-                              Dr. Amina Rahman
-                            </div>
-                            <div class="rate-role">
-                              Postdoc, materials science
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="rate-wrap">
-                    <div rate-top="" class="rate-card">
-                      <div class="rate-info">
-                        <div class="rate-author">
-                          <div class="rate-image">
-                            <img src="https://cdn.prod.website-files.com/69e73a2d97786bbb24018dff/69eb62755b2981fe5817cd6c_be41c0166a9e3c8b03ee583889101f3f_Ethan%20Carter.webp" loading="lazy" alt="Prof. James Okeke" class="rate-icon" />
-                          </div>
-                          <div class="rate-wrapp">
-                            <div class="rate-title">
-                              Prof. James Okeke
-                            </div>
-                            <div class="rate-role">
-                              Research methods lead
-                            </div>
-                          </div>
-                        </div>
-                        <div class="rate-except">
-                          “We tell students: never trust a bare impact-factor claim. ScholarScope labels free metrics correctly.”
-                        </div>
-                      </div>
-                    </div>
-                    <div rate-end="" class="rate-card">
-                      <div class="rate-info">
-                        <div class="rate-author">
-                          <div class="rate-image">
-                            <img src="https://cdn.prod.website-files.com/69e73a2d97786bbb24018dff/69eb6279d0bf5211682712e3_34898b087dd8fc6be7739c0b4da57779_Olivia%20Bennett.webp" loading="lazy" alt="Sofia Martins" class="rate-icon" />
-                          </div>
-                          <div class="rate-wrapp">
-                            <div class="rate-title">
-                              Sofia Martins
-                            </div>
-                            <div class="rate-role">
-                              PhD candidate
-                            </div>
-                          </div>
-                        </div>
-                        <div class="rate-except">
-                          “DOAJ + OpenAlex in one panel is exactly what our lab needed during journal selection week.”
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+              <div class="ss-evidence">
+                <p class="ss-evidence-eyebrow">Evidence</p>
+                <h2 class="ss-evidence-title">Built on open research sources</h2>
+                <p class="ss-evidence-lede">ScholarScope briefs cite DOAJ, OpenAlex, NLM/PubMed Catalog, and SCImago verify links — with free OpenAlex metrics clearly labeled as not Clarivate Impact Factor.</p>
+                <p class="ss-evidence-actions">
+                  <a href="#where">Where it works</a>
+                  <a href="/privacy.html">Privacy</a>
+                  <a href="/install.html">Install guide</a>
+                </p>
               </div>
             </div>
           </div>

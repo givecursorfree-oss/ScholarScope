@@ -77,13 +77,13 @@ const reps = [
     "Chrome extension for researchers. Live APC, OA licenses, subjects, indexing checks, and free impact metrics while you browse SciMAGO and publisher sites.",
   ],
 
-  [/Get Started/g, "Install Extension"],
+  [/Get Started/g, "Install guide"],
   [/Learn More/g, "How it works"],
 
   [/Discover Our Features/g, "Built for researchers"],
   [
     /Developer tools that don’t get in your way—just clean, reliable APIs and thoughtfully crafted documentation so you can build faster with confidence\./g,
-    "Live APC, OA licenses, subjects, indexing checks, and free OpenAlex metrics — with SJR verified on SCImago.",
+    "Live APC, OA licenses, subjects, indexing checks, and free OpenAlex metrics — with a SCImago SJR verify link.",
   ],
 
   [/API-First Design/g, "Real APC &amp; fees"],
@@ -289,11 +289,40 @@ html = html.replace(
   '<section id="where" class="apps-section">'
 );
 
-// Where it works — only replace center mark with uploaded ScholarScope icon
+// Where it works — center ScholarScope mark + real research source logos (not Toolify SVGs)
 html = html.replace(
   /(<img loading="lazy" src=")https:\/\/cdn\.prod\.website-files\.com\/69e73a2d97786bbb24018dff\/69eb30f47b12475b32605f40_6774332cf1f9919e074674c70b765b60_Integrations\.svg(" alt="ScholarScope" class="apps-icon apps-main"\s*\/>)/,
   '$1/where-scholarscope.png$2'
 );
+{
+  const whereOrbit = [
+    { src: "/trusted/doaj.svg", alt: "DOAJ" },
+    { src: "/trusted/openalex.png", alt: "OpenAlex" },
+    { src: "/trusted/scimago.svg", alt: "SCImago" },
+    { src: "/trusted/nlm-pubmed.svg", alt: "PubMed" },
+    { src: "/trusted/doaj-white.svg", alt: "DOAJ" },
+    { src: "/trusted/openalex.png", alt: "OpenAlex" },
+    { src: "/trusted/scimago.svg", alt: "SCImago" },
+    { src: "/trusted/nlm-pubmed.svg", alt: "PubMed" },
+    { src: "/trusted/doaj.svg", alt: "DOAJ" },
+    { src: "/trusted/openalex.png", alt: "OpenAlex" },
+    { src: "/trusted/scimago.svg", alt: "SCImago" },
+    { src: "/trusted/nlm-pubmed.svg", alt: "PubMed" },
+    { src: "/trusted/doaj.svg", alt: "DOAJ" },
+    { src: "/trusted/openalex.png", alt: "OpenAlex" },
+    { src: "/trusted/scimago.svg", alt: "SCImago" },
+    { src: "/trusted/nlm-pubmed.svg", alt: "PubMed" },
+  ];
+  let orbitIdx = 0;
+  html = html.replace(
+    /src="https:\/\/cdn\.prod\.website-files\.com\/69e73a2d97786bbb24018dff\/[^"]*Integrations%20Logo[^"]*\.svg"\s+alt="Supported research site"/g,
+    () => {
+      const L = whereOrbit[orbitIdx % whereOrbit.length];
+      orbitIdx += 1;
+      return `src="${L.src}" alt="${L.alt}"`;
+    }
+  );
+}
 html = html.replace(
   '<section class="rate-section">',
   '<section id="stories" class="rate-section">'
@@ -303,12 +332,10 @@ html = html.replace(
   '<div id="install" class="buy-now">'
 );
 
-// Primary install CTAs → Chrome Web Store when set, else downloadable extension ZIP
+// Primary install CTAs → Chrome Web Store when published, else install guide (honest path)
 const CHROME_STORE_URL = process.env.SCHOLARSCOPE_CHROME_STORE_URL || "";
 const DOWNLOAD_URL = "/downloads/ScholarScope-extension.zip";
 const INSTALL_GUIDE_URL = "/install.html";
-/** Badge must link to the live CWS listing when published (Google branding rules). */
-const CWS_BADGE_HREF = CHROME_STORE_URL || INSTALL_GUIDE_URL;
 
 if (CHROME_STORE_URL) {
   html = html.replace(
@@ -316,22 +343,24 @@ if (CHROME_STORE_URL) {
     `$1${CHROME_STORE_URL}"`,
   );
 } else {
+  // Point hero primary CTA at the guided install page (not a raw ZIP surprise)
   html = html.replace(
     /(data-wf--button--variant="linear"[^>]*href=")#install"/g,
-    `$1${DOWNLOAD_URL}" download="ScholarScope-extension.zip"`,
+    `$1${INSTALL_GUIDE_URL}"`,
   );
 }
 
-// Official “Available in the Chrome Web Store” badge — unmodified asset per
-// https://developer.chrome.com/docs/webstore/branding
-html = html.replace(
-  /(<div class="hero-button-block">[\s\S]*?<\/div>\s*<\/div>\s*)(<\/div>\s*<\/div>\s*<\/section>\s*<section class="home-section">)/,
-  `$1
+// Official CWS badge ONLY when a live listing URL exists (Google branding rules)
+if (CHROME_STORE_URL) {
+  html = html.replace(
+    /(<div class="hero-button-block">[\s\S]*?<\/div>\s*<\/div>\s*)(<\/div>\s*<\/div>\s*<\/section>\s*<section class="home-section">)/,
+    `$1
               <div class="ss-cws-badge-wrap">
                 <a
                   class="ss-cws-badge"
-                  href="${CWS_BADGE_HREF}"
-                  ${CHROME_STORE_URL ? 'target="_blank" rel="noopener noreferrer"' : ""}
+                  href="${CHROME_STORE_URL}"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label="Available in the Chrome Web Store"
                 >
                   <img
@@ -345,7 +374,20 @@ html = html.replace(
                 <p class="ss-cws-note">Google Chrome is a trademark of Google LLC.</p>
               </div>
             $2`
-);
+  );
+} else {
+  html = html.replace(
+    /(<div class="hero-button-block">[\s\S]*?<\/div>\s*<\/div>\s*)(<\/div>\s*<\/div>\s*<\/section>\s*<section class="home-section">)/,
+    `$1
+              <div class="ss-cws-badge-wrap">
+                <a class="ss-cws-badge ss-install-guide-link" href="${INSTALL_GUIDE_URL}">
+                  Download for Chrome or Edge · Load unpacked
+                </a>
+                <p class="ss-cws-note">Not on the Chrome Web Store yet — unzip once, then Load unpacked. <a href="${DOWNLOAD_URL}" download="ScholarScope-extension.zip">Get the ZIP</a></p>
+              </div>
+            $2`
+  );
+}
 
 html = html.replace(
   /href="https:\/\/webflow\.com\/dashboard\/marketplace-checkout[^"]*"/g,
@@ -587,6 +629,35 @@ html = html.replace(
         max-width:36rem;
       }
       .ss-cws-note a{color:#7ec8d4;text-decoration:underline}
+      .ss-install-guide-link{
+        display:inline-flex!important;
+        align-items:center;
+        min-height:44px;
+        padding:12px 18px;
+        border-radius:10px;
+        border:1px solid rgba(126,200,212,.35);
+        background:rgba(10,95,110,.35);
+        color:#e8efec!important;
+        font-family:"Plus Jakarta Sans",Lato,system-ui,sans-serif;
+        font-size:.95rem;
+        font-weight:650;
+        line-height:1.3;
+        text-decoration:none!important;
+      }
+      .ss-install-guide-link:hover{opacity:.92;border-color:rgba(126,200,212,.6)}
+      #where .apps-card .apps-icon{
+        opacity:.9!important;
+        object-fit:contain!important;
+        filter:none;
+        max-width:72%;
+        max-height:72%;
+      }
+      .ss-evidence{max-width:40rem;margin:0 auto;text-align:left}
+      .ss-evidence-eyebrow{font-size:.6875rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;opacity:.55;margin:0 0 10px}
+      .ss-evidence-title{font-size:clamp(1.5rem,3vw,2rem);letter-spacing:-.03em;line-height:1.15;margin:0 0 12px}
+      .ss-evidence-lede{opacity:.78;line-height:1.55;margin:0 0 18px}
+      .ss-evidence-actions{display:flex;flex-wrap:wrap;gap:14px 22px;margin:0}
+      .ss-evidence-actions a{color:#7ec8d4;font-weight:650;min-height:44px;display:inline-flex;align-items:center}
     </style>`
 );
 
@@ -741,7 +812,7 @@ html = html.replace(
   "$1How it works$2"
 );
 html = html.replace(
-  /(<section id="how"[\s\S]*?<div text-animation="" class="section-except">)\s*Live APC, OA licenses, subjects, indexing checks, and free OpenAlex metrics — with SJR verified on SCImago\.\s*(<\/div>)/,
+  /(<section id="how"[\s\S]*?<div text-animation="" class="section-except">)\s*Live APC, OA licenses, subjects, indexing checks, and free OpenAlex metrics — with a SCImago SJR verify link\.\s*(<\/div>)/,
   "$1Install once, open a journal page, read the brief — or search by ISSN / title anytime.$2"
 );
 
@@ -971,6 +1042,27 @@ const faqHtml = `
 html = html.replace(
   '<section id="stories" class="rate-section">',
   `${faqHtml}\n        <section id="stories" class="rate-section">`
+);
+
+// Replace fabricated testimonials with honest evidence strip (no stock faces as quotes)
+html = html.replace(
+  /<section id="stories" class="rate-section">[\s\S]*?<\/section>/,
+  `<section id="stories" class="rate-section">
+          <div class="section-space">
+            <div class="w-layout-blockcontainer main-container w-container">
+              <div class="ss-evidence">
+                <p class="ss-evidence-eyebrow">Evidence</p>
+                <h2 class="ss-evidence-title">Built on open research sources</h2>
+                <p class="ss-evidence-lede">ScholarScope briefs cite DOAJ, OpenAlex, NLM/PubMed Catalog, and SCImago verify links — with free OpenAlex metrics clearly labeled as not Clarivate Impact Factor.</p>
+                <p class="ss-evidence-actions">
+                  <a href="#where">Where it works</a>
+                  <a href="/privacy.html">Privacy</a>
+                  <a href="/install.html">Install guide</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>`
 );
 
 // FAQ styles inside existing brand <style> block
