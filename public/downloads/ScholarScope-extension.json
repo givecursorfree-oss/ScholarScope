@@ -1,23 +1,26 @@
 {
   "name": "ScholarScope — Journal APC & OA Brief",
-  "version": "1.9.3",
-  "file": "ScholarScope-extension.zip",
-  "path": "/downloads/ScholarScope-extension.zip",
-  "bytes": 1048740,
-  "packedAt": "2026-07-24T17:49:26.728Z",
+  "version": "1.9.7",
+  "file": "ScholarScope-extension-v1.9.7.zip",
+  "stableFile": "ScholarScope-extension.zip",
+  "path": "/downloads/ScholarScope-extension-v1.9.7.zip",
+  "stablePath": "/downloads/ScholarScope-extension.zip",
+  "bytes": 1052378,
+  "packedAt": "2026-07-27T11:03:45.871Z",
+  "cwsUpload": "ScholarScope-extension-v1.9.7.zip",
   "install": {
     "chrome": [
-      "Download ScholarScope-extension.zip",
+      "Download ScholarScope-extension-v1.9.7.zip",
       "Unzip the file (you get one folder)",
       "Open chrome://extensions → enable Developer mode",
       "Click Load unpacked → select the unzipped folder"
     ],
     "edge": [
-      "Download ScholarScope-extension.zip",
+      "Download ScholarScope-extension-v1.9.7.zip",
       "Unzip the file",
       "Open edge://extensions → enable Developer mode",
       "Click Load unpacked → select the unzipped folder"
     ],
-    "note": "Chrome blocks installing .crx/.extension files from websites. This ZIP is the official package. Chrome Web Store gives one-click install + auto-updates once published."
+    "note": "Chrome blocks installing .crx/.extension files from websites. This ZIP is the official package. Chrome Web Store gives one-click install + auto-updates once published. Upload the versioned ZIP (cwsUpload) to the Chrome Web Store."
   }
 }

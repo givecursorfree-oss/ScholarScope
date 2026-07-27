@@ -4,7 +4,7 @@ export const howMosaicHtml = `
                   <article class="ss-how-card ss-how-wide" role="listitem">
                     <div class="ss-how-copy">
                       <p class="ss-how-kicker">01 · Install ScholarScope</p>
-                      <p class="ss-how-body">Download the ZIP, unzip once, then Load unpacked in Chrome or Edge. Pin it to your toolbar.</p>
+                      <p class="ss-how-body">Add ScholarScope from the Chrome Web Store, pin it, then open a journal page on SciMAGO or a publisher site.</p>
                     </div>
                     <div class="ss-how-media">
                       <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Researchers reviewing work on laptops" width="1207" height="800" loading="lazy" />

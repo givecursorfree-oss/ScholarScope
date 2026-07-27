@@ -171,12 +171,12 @@ const reps = [
   [/Buy Now/g, "Install"],
   [
     /Great Job on choosing the right template! Just one more step to start building\./g,
-    "Download ScholarScope-extension.zip, unzip once, then Load unpacked in Chrome or Edge. No project repo needed.",
+    "Add ScholarScope from the Chrome Web Store in one click. Pin it, then open a journal page for a live brief.",
   ],
-  [/Buy on Webflow  \(Official\)/g, "Download extension (.zip)"],
-  [/Buy on Webflow \(Official\)/g, "Download extension (.zip)"],
+  [/Buy on Webflow  \(Official\)/g, "Add to Chrome"],
+  [/Buy on Webflow \(Official\)/g, "Add to Chrome"],
   [/Buy from TNCFlow/g, "Install guide"],
-  [/Save 10%/g, "v" + (process.env.SCHOLARSCOPE_EXT_VERSION || "1.9.3")],
+  [/Save 10%/g, "v" + (process.env.SCHOLARSCOPE_EXT_VERSION || "1.9.7")],
   [/Request Customization/g, "How it works"],
   [/Questions\/Support/g, "DOAJ · OpenAlex"],
 
@@ -289,40 +289,11 @@ html = html.replace(
   '<section id="where" class="apps-section">'
 );
 
-// Where it works — center ScholarScope mark + real research source logos (not Toolify SVGs)
+// Where it works — only replace the center mark; keep original Toolify satellite icons
 html = html.replace(
   /(<img loading="lazy" src=")https:\/\/cdn\.prod\.website-files\.com\/69e73a2d97786bbb24018dff\/69eb30f47b12475b32605f40_6774332cf1f9919e074674c70b765b60_Integrations\.svg(" alt="ScholarScope" class="apps-icon apps-main"\s*\/>)/,
   '$1/where-scholarscope.png$2'
 );
-{
-  const whereOrbit = [
-    { src: "/trusted/doaj.svg", alt: "DOAJ" },
-    { src: "/trusted/openalex.png", alt: "OpenAlex" },
-    { src: "/trusted/scimago.svg", alt: "SCImago" },
-    { src: "/trusted/nlm-pubmed.svg", alt: "PubMed" },
-    { src: "/trusted/doaj-white.svg", alt: "DOAJ" },
-    { src: "/trusted/openalex.png", alt: "OpenAlex" },
-    { src: "/trusted/scimago.svg", alt: "SCImago" },
-    { src: "/trusted/nlm-pubmed.svg", alt: "PubMed" },
-    { src: "/trusted/doaj.svg", alt: "DOAJ" },
-    { src: "/trusted/openalex.png", alt: "OpenAlex" },
-    { src: "/trusted/scimago.svg", alt: "SCImago" },
-    { src: "/trusted/nlm-pubmed.svg", alt: "PubMed" },
-    { src: "/trusted/doaj.svg", alt: "DOAJ" },
-    { src: "/trusted/openalex.png", alt: "OpenAlex" },
-    { src: "/trusted/scimago.svg", alt: "SCImago" },
-    { src: "/trusted/nlm-pubmed.svg", alt: "PubMed" },
-  ];
-  let orbitIdx = 0;
-  html = html.replace(
-    /src="https:\/\/cdn\.prod\.website-files\.com\/69e73a2d97786bbb24018dff\/[^"]*Integrations%20Logo[^"]*\.svg"\s+alt="Supported research site"/g,
-    () => {
-      const L = whereOrbit[orbitIdx % whereOrbit.length];
-      orbitIdx += 1;
-      return `src="${L.src}" alt="${L.alt}"`;
-    }
-  );
-}
 html = html.replace(
   '<section class="rate-section">',
   '<section id="stories" class="rate-section">'
@@ -333,8 +304,9 @@ html = html.replace(
 );
 
 // Primary install CTAs → Chrome Web Store when published, else install guide (honest path)
-const CHROME_STORE_URL = process.env.SCHOLARSCOPE_CHROME_STORE_URL || "";
-const DOWNLOAD_URL = "/downloads/ScholarScope-extension.zip";
+const CHROME_STORE_URL =
+  process.env.SCHOLARSCOPE_CHROME_STORE_URL ||
+  "https://chromewebstore.google.com/detail/idfggjdfmobnjnemmjcebaeocdlliflm";
 const INSTALL_GUIDE_URL = "/install.html";
 
 if (CHROME_STORE_URL) {
@@ -381,9 +353,9 @@ if (CHROME_STORE_URL) {
     `$1
               <div class="ss-cws-badge-wrap">
                 <a class="ss-cws-badge ss-install-guide-link" href="${INSTALL_GUIDE_URL}">
-                  Download for Chrome or Edge · Load unpacked
+                  Install ScholarScope for Chrome
                 </a>
-                <p class="ss-cws-note">Not on the Chrome Web Store yet — unzip once, then Load unpacked. <a href="${DOWNLOAD_URL}" download="ScholarScope-extension.zip">Get the ZIP</a></p>
+                <p class="ss-cws-note">Add from the Chrome Web Store — see the <a href="${INSTALL_GUIDE_URL}">install guide</a>.</p>
               </div>
             $2`
   );
@@ -391,7 +363,7 @@ if (CHROME_STORE_URL) {
 
 html = html.replace(
   /href="https:\/\/webflow\.com\/dashboard\/marketplace-checkout[^"]*"/g,
-  `href="${DOWNLOAD_URL}" download="ScholarScope-extension.zip"`
+  `href="${CHROME_STORE_URL}" target="_blank" rel="noopener noreferrer"`
 );
 html = html.replace(
   /href="https:\/\/tncflow\.com\/checkout\/[^"]*"/g,
@@ -649,8 +621,10 @@ html = html.replace(
         opacity:.9!important;
         object-fit:contain!important;
         filter:none;
-        max-width:72%;
-        max-height:72%;
+        width:auto!important;
+        height:auto!important;
+        max-width:56%!important;
+        max-height:56%!important;
       }
       .ss-evidence{max-width:40rem;margin:0 auto;text-align:left}
       .ss-evidence-eyebrow{font-size:.6875rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;opacity:.55;margin:0 0 10px}
@@ -685,10 +659,10 @@ html = html.replace(
                 $2`
 );
 
-// Footer subscribe privacy line
+// Remove the newsletter subscribe block entirely (no email capture)
 html = html.replace(
-  /<div class="footer-text">\s*By subscribing you agree to our\s*<a[^>]*>\s*Privacy Policy\s*<\/a>\s*<\/div>/i,
-  `<div class="footer-text">Updates on the extension and open research sources. No spam.</div>`
+  /<div animated-step="" class="footer-text-block">\s*<div class="footer-name">[\s\S]*?wf-form-Subscribe-Newsletter[\s\S]*?Privacy Policy\s*<\/a>\s*<\/div>\s*<\/div>/i,
+  ""
 );
 
 // Remove TNCFlow social placeholders
@@ -876,6 +850,7 @@ const jsonLd = {
       logo: `${SITE_URL}/scholarscope-logo.png`,
       description: SEO.description,
       sameAs: [
+        CHROME_STORE_URL,
         "https://github.com/givecursorfree-oss/ScholarScope",
       ],
     },
@@ -910,8 +885,9 @@ const jsonLd = {
         priceCurrency: "USD",
       },
       description: SEO.description,
-      url: SITE_URL,
-      downloadUrl: `${SITE_URL}/downloads/ScholarScope-extension.zip`,
+      url: CHROME_STORE_URL || SITE_URL,
+      installUrl: CHROME_STORE_URL || `${SITE_URL}/install.html`,
+      downloadUrl: CHROME_STORE_URL,
       image: `${SITE_URL}/scholarscope-logo.png`,
       featureList: [
         "Live APC and publishing fees from page, DOAJ, and OpenAlex",
@@ -954,7 +930,7 @@ const jsonLd = {
           name: "How do I install ScholarScope?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Download ScholarScope-extension.zip, unzip once, open chrome://extensions (or edge://extensions), enable Developer mode, and Load unpacked. Full steps are on the install guide.",
+            text: "Click Add to Chrome on the Chrome Web Store listing, pin ScholarScope, then open a journal page on SciMAGO or a publisher site.",
           },
         },
         {
@@ -1030,7 +1006,7 @@ const faqHtml = `
                   </details>
                   <details class="ss-faq-item">
                     <summary>How do I install it in Chrome or Edge?</summary>
-                    <p>Download the ZIP, unzip once, open chrome://extensions or edge://extensions, enable Developer mode, then Load unpacked. See the <a href="/install.html">install guide</a>.</p>
+                    <p><a href="${CHROME_STORE_URL}" target="_blank" rel="noopener noreferrer">Add ScholarScope from the Chrome Web Store</a>, pin it, then open a journal page. <a href="${INSTALL_GUIDE_URL}">Install guide</a>.</p>
                   </details>
                 </div>
               </div>
@@ -1069,38 +1045,95 @@ html = html.replace(
 html = html.replace(
   /\/\* Official source logos in trusted marquee \*\//,
   `${howMosaicCss}
-      /* Where it works — fill circular ring so glass flat edges don't show */
+      /* Where it works — balanced constellation; center ≈1.25× largest satellite */
+      #where .apps-wrap-block{
+        gap:clamp(12px,2.5vw,28px)!important;
+        margin-top:clamp(32px,5vw,64px)!important;
+        margin-bottom:clamp(32px,5vw,64px)!important;
+      }
+      #where .apps-wrap{
+        align-items:center!important;
+        justify-content:center!important;
+        gap:clamp(8px,1.6vw,24px)!important;
+      }
+      #where .apps-card{
+        border-color:rgba(255,255,255,.09)!important;
+        background:rgba(12,12,12,.65)!important;
+        background-image:linear-gradient(165deg,rgba(255,255,255,.07),rgba(255,255,255,.02))!important;
+        box-shadow:0 1px 0 rgba(255,255,255,.04) inset!important;
+      }
       #where .apps-logo{
         display:flex!important;
         align-items:center!important;
         justify-content:center!important;
-        width:140px!important;
-        height:140px!important;
-        padding:3px!important;
+        width:120px!important;
+        height:120px!important;
+        flex:0 0 auto!important;
+        padding:2px!important;
         overflow:hidden!important;
         border-radius:50%!important;
-        background-image:linear-gradient(135deg,#7ec8d4 0%,#ffd7bc 55%,#fff 100%)!important;
-        box-shadow:0 0 72px rgba(126,200,212,.22);
+        background-image:linear-gradient(145deg,#6eb8c8 0%,#9ad4dc 42%,#f0dcc8 100%)!important;
+        box-shadow:0 0 40px rgba(126,200,212,.16),0 0 0 1px rgba(126,200,212,.14);
       }
       #where .apps-icon.apps-main{
         width:100%!important;
         height:100%!important;
-        padding:0!important;
+        padding:5%!important;
         margin:0!important;
         display:block!important;
         box-sizing:border-box!important;
-        object-fit:cover!important;
+        object-fit:contain!important;
         object-position:center center!important;
         border-radius:50%!important;
-        transform:scale(1.18);
-        transform-origin:center center;
-        background-color:#0b0b0b!important;
+        transform:none!important;
+        background-color:#0a0a0a!important;
         background-image:none!important;
         opacity:1!important;
       }
       #where .apps-card .apps-icon{
-        opacity:.85;
+        opacity:.88;
         object-fit:contain;
+        width:auto!important;
+        height:auto!important;
+        max-width:56%!important;
+        max-height:56%!important;
+      }
+      /* Desktop ladder: s 64 · m 76 · l 84 · xl 92 · center 120 */
+      #where .apps-card.apps-s{width:64px!important;height:64px!important}
+      #where .apps-card.apps-m{width:76px!important;height:76px!important}
+      #where .apps-card.apps-l{width:84px!important;height:84px!important}
+      #where .apps-card.apps-xl{width:92px!important;height:92px!important}
+      @media screen and (max-width:991px){
+        #where .apps-card.apps-s{width:44px!important;height:44px!important}
+        #where .apps-card.apps-m{width:52px!important;height:52px!important}
+        #where .apps-card.apps-l{width:58px!important;height:58px!important}
+        #where .apps-card.apps-xl{width:64px!important;height:64px!important}
+        #where .apps-logo{width:88px!important;height:88px!important}
+      }
+      @media screen and (max-width:767px){
+        #where .apps-wrap-block,#where .apps-wrap{gap:8px!important}
+        #where .apps-card.apps-s{width:36px!important;height:36px!important}
+        #where .apps-card.apps-m{width:42px!important;height:42px!important}
+        #where .apps-card.apps-l{width:48px!important;height:48px!important}
+        #where .apps-card.apps-xl{width:52px!important;height:52px!important}
+        #where .apps-logo{
+          width:64px!important;
+          height:64px!important;
+          box-shadow:0 0 24px rgba(126,200,212,.14),0 0 0 1px rgba(126,200,212,.12);
+        }
+        #where .apps-icon.apps-main{padding:4%!important}
+      }
+      @media screen and (max-width:479px){
+        #where .apps-wrap-block,#where .apps-wrap{gap:6px!important}
+        #where .apps-card.apps-s{width:30px!important;height:30px!important}
+        #where .apps-card.apps-m{width:36px!important;height:36px!important}
+        #where .apps-card.apps-l{width:40px!important;height:40px!important}
+        #where .apps-card.apps-xl{width:44px!important;height:44px!important}
+        #where .apps-logo{
+          width:56px!important;
+          height:56px!important;
+          box-shadow:0 0 18px rgba(126,200,212,.12),0 0 0 1px rgba(126,200,212,.1);
+        }
       }
       /* FAQ — scannable, no card chrome beyond interaction */
       .ss-faq-section{background:transparent}

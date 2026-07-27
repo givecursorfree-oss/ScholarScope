@@ -3,29 +3,22 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Install ScholarScope for Chrome &amp; Edge</title>
+    <title>Install ScholarScope for Chrome</title>
     <meta
       name="description"
-      content="Install ScholarScope in Chrome or Edge: download the ZIP, Load unpacked, and get live journal APC, OA, and free impact metrics on SciMAGO and publisher sites."
+      content="Install ScholarScope from the Chrome Web Store — live journal APC, OA, and free impact metrics on SciMAGO and publisher sites."
     />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://scholar-scope-eight.vercel.app/install.html" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="ScholarScope" />
-    <meta property="og:title" content="Install ScholarScope for Chrome &amp; Edge" />
+    <meta property="og:title" content="Install ScholarScope for Chrome" />
     <meta
       property="og:description"
-      content="Download one ZIP for Chrome or Edge. Unzip once, Load unpacked, pin ScholarScope — then open a journal page for a live publishing brief."
+      content="Add ScholarScope from the Chrome Web Store in one click."
     />
     <meta property="og:url" content="https://scholar-scope-eight.vercel.app/install.html" />
     <meta property="og:image" content="https://scholar-scope-eight.vercel.app/scholarscope-logo.png" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Install ScholarScope for Chrome &amp; Edge" />
-    <meta
-      name="twitter:description"
-      content="Download one ZIP for Chrome or Edge. Unzip once, Load unpacked, pin ScholarScope."
-    />
-    <meta name="twitter:image" content="https://scholar-scope-eight.vercel.app/scholarscope-logo.png" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="/scholarscope-logo.png" />
     <meta name="theme-color" content="#0A5F6E" />
@@ -34,32 +27,24 @@
         "@context": "https://schema.org",
         "@type": "HowTo",
         "name": "Install ScholarScope Chrome extension",
-        "description": "Install the ScholarScope journal brief extension in Chrome or Microsoft Edge using Load unpacked.",
-        "totalTime": "PT3M",
-        "tool": [
-          { "@type": "HowToTool", "name": "Google Chrome or Microsoft Edge" },
-          { "@type": "HowToTool", "name": "ScholarScope-extension.zip" }
-        ],
+        "description": "Install ScholarScope from the Chrome Web Store.",
+        "totalTime": "PT2M",
+        "tool": [{ "@type": "HowToTool", "name": "Google Chrome" }],
         "step": [
           {
             "@type": "HowToStep",
-            "name": "Download the package",
-            "text": "Download ScholarScope-extension.zip from the ScholarScope site."
+            "name": "Open the Chrome Web Store listing",
+            "text": "Open the ScholarScope listing and click Add to Chrome."
           },
           {
             "@type": "HowToStep",
-            "name": "Unzip",
-            "text": "Unzip the file so you have one extension folder."
+            "name": "Pin the extension",
+            "text": "Pin ScholarScope to your toolbar."
           },
           {
             "@type": "HowToStep",
-            "name": "Enable Developer mode",
-            "text": "Open chrome://extensions or edge://extensions and turn on Developer mode."
-          },
-          {
-            "@type": "HowToStep",
-            "name": "Load unpacked",
-            "text": "Click Load unpacked and select the unzipped ScholarScope folder. Pin the extension."
+            "name": "Open a journal page",
+            "text": "Visit SciMAGO, a publisher site, PubMed, or Google Scholar — or search by ISSN or title in the popup."
           }
         ]
       }
@@ -72,110 +57,85 @@
         --bg: #f3f7f5;
         --card: #ffffff;
         --accent: #0d6e63;
-        --accent-2: #0a564e;
+        --store-blue: #1b5cb7;
       }
-      * {
-        box-sizing: border-box;
-      }
+      * { box-sizing: border-box; }
       body {
         margin: 0;
         font-family: "Segoe UI", system-ui, sans-serif;
         color: var(--ink);
-        background:
-          radial-gradient(1200px 500px at 10% -10%, #d7efe8 0%, transparent 55%),
-          radial-gradient(900px 400px at 100% 0%, #e8f2ee 0%, transparent 50%),
-          var(--bg);
-        min-height: 100vh;
+        background: var(--bg);
+        line-height: 1.55;
       }
       main {
         max-width: 720px;
         margin: 0 auto;
-        padding: 48px 20px 80px;
-      }
-      a {
-        color: var(--accent);
+        padding: 32px 20px 56px;
       }
       h1 {
-        font-size: clamp(1.8rem, 4vw, 2.4rem);
-        letter-spacing: -0.03em;
-        margin: 0 0 10px;
+        font-size: clamp(1.75rem, 4vw, 2.25rem);
+        margin: 0 0 12px;
+        letter-spacing: -0.02em;
       }
+      h2 { font-size: 1.1rem; margin: 0 0 12px; }
       .lead {
-        color: var(--muted);
         font-size: 1.05rem;
-        line-height: 1.5;
-        margin: 0 0 28px;
+        color: var(--muted);
+        margin: 0 0 24px;
       }
+      .nav { margin-bottom: 20px; font-size: 0.95rem; }
+      .nav a { color: var(--accent); }
       .cta-row {
         display: flex;
         flex-wrap: wrap;
         gap: 12px;
-        margin-bottom: 28px;
+        margin-bottom: 16px;
       }
       .btn {
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        gap: 8px;
-        padding: 14px 20px;
+        padding: 12px 18px;
         border-radius: 10px;
-        font-weight: 650;
+        font-weight: 600;
         text-decoration: none;
-        border: 1px solid transparent;
-        min-height: 44px;
+        border: 1px solid var(--line);
+        color: var(--ink);
+        background: var(--card);
       }
       .btn-primary {
         background: var(--accent);
+        border-color: var(--accent);
         color: #fff;
       }
-      .btn-primary:hover {
-        background: var(--accent-2);
-      }
-      .btn-ghost {
-        background: var(--card);
-        color: var(--ink);
-        border-color: var(--line);
+      .btn-ghost { background: transparent; }
+      .cws-badge-wrap { margin: 8px 0 20px; }
+      .cws-badge-wrap img { display: block; height: 58px; width: auto; }
+      .verified-strip {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        margin: 0 0 20px;
+        padding: 8px 12px;
+        border-radius: 999px;
+        background: rgba(27, 92, 183, 0.08);
+        color: var(--store-blue);
+        font-size: 0.92rem;
+        font-weight: 600;
       }
       .panel {
         background: var(--card);
         border: 1px solid var(--line);
         border-radius: 14px;
-        padding: 22px 22px 8px;
+        padding: 20px 22px;
         margin-bottom: 18px;
       }
-      .panel h2 {
-        margin: 0 0 12px;
-        font-size: 1.1rem;
-      }
-      ol {
-        margin: 0 0 16px;
-        padding-left: 1.2rem;
-        color: var(--ink);
-        line-height: 1.55;
-      }
-      li {
-        margin-bottom: 8px;
-      }
-      code {
-        font-family: ui-monospace, Consolas, monospace;
-        font-size: 0.92em;
-        background: #eef4f1;
-        padding: 1px 6px;
-        border-radius: 5px;
-      }
+      .panel ol { margin: 0; padding-left: 1.25rem; }
+      .panel li { margin-bottom: 8px; }
       .note {
+        font-size: 0.92rem;
         color: var(--muted);
-        font-size: 0.95rem;
-        line-height: 1.5;
-        margin: 0 0 18px;
-      }
-      .meta {
-        font-size: 0.9rem;
-        color: var(--muted);
-      }
-      .nav {
-        margin-bottom: 20px;
-        font-size: 0.95rem;
+        margin: 0;
       }
     </style>
   </head>
@@ -184,85 +144,56 @@
       <p class="nav"><a href="/">← ScholarScope</a> · <a href="/privacy.html">Privacy</a></p>
       <h1>Install ScholarScope</h1>
       <p class="lead">
-        Download one extension package for Chrome or Edge. No project folder to
-        keep in sync — unzip once, load that folder, done. Then open SciMAGO or a
-        publisher page for a live APC, OA, and impact brief.
+        Install directly from the Chrome Web Store. One click, pin it, then open
+        SciMAGO or a publisher page for a live APC, OA, and impact brief.
       </p>
+
+      <div class="verified-strip">Listed on Chrome Web Store · v1.9.7</div>
+
+      <div class="cws-badge-wrap">
+        <a
+          href="https://chromewebstore.google.com/detail/idfggjdfmobnjnemmjcebaeocdlliflm"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Available in the Chrome Web Store"
+        >
+          <img
+            src="/chrome-web-store-badge-border.png"
+            width="206"
+            height="58"
+            alt="Available in the Chrome Web Store"
+            decoding="async"
+          />
+        </a>
+      </div>
 
       <div class="cta-row">
         <a
           class="btn btn-primary"
-          id="download-btn"
-          href="/downloads/ScholarScope-extension.zip"
-          download="ScholarScope-extension.zip"
+          href="https://chromewebstore.google.com/detail/idfggjdfmobnjnemmjcebaeocdlliflm"
+          target="_blank"
+          rel="noopener noreferrer"
         >
-          Download extension (.zip)
+          Add to Chrome
         </a>
         <a class="btn btn-ghost" href="/#how">How it works</a>
         <a class="btn btn-ghost" href="/">Back to site</a>
       </div>
-      <p class="meta" id="pack-meta">Preparing package info…</p>
-
-      <p style="margin:0 0 24px">
-        <a class="btn" href="/downloads/ScholarScope-extension.zip" download="ScholarScope-extension.zip">Download ZIP · Load unpacked</a>
-      </p>
-      <p class="note">Not listed on the Chrome Web Store yet. Use Load unpacked below. When a listing is live, set <code>SCHOLARSCOPE_CHROME_STORE_URL</code> so an official store badge can appear.</p>
 
       <div class="panel">
-        <h2>Chrome</h2>
+        <h2>Install in Chrome</h2>
         <ol>
-          <li>Download <code>ScholarScope-extension.zip</code></li>
-          <li>Unzip it (you get one folder)</li>
-          <li>Open <code>chrome://extensions</code> and turn on Developer mode</li>
-          <li>Click <strong>Load unpacked</strong> → select that unzipped folder</li>
-          <li>Pin ScholarScope, then visit a journal page on SciMAGO or a publisher site</li>
-        </ol>
-      </div>
-
-      <div class="panel">
-        <h2>Microsoft Edge</h2>
-        <ol>
-          <li>Download the same ZIP</li>
-          <li>Unzip it</li>
-          <li>Open <code>edge://extensions</code> and turn on Developer mode</li>
-          <li>Click <strong>Load unpacked</strong> → select that unzipped folder</li>
+          <li>Open the <a href="https://chromewebstore.google.com/detail/idfggjdfmobnjnemmjcebaeocdlliflm" target="_blank" rel="noopener noreferrer">Chrome Web Store listing</a></li>
+          <li>Click <strong>Add to Chrome</strong></li>
+          <li>Pin ScholarScope to your toolbar</li>
+          <li>Open a journal page on SciMAGO, a publisher site, PubMed, or Google Scholar</li>
         </ol>
       </div>
 
       <p class="note">
-        Browsers block installing custom <code>.crx</code> /
-        <code>.extension</code> files from websites. A ZIP package is the
-        official sideload format. For one-click install and automatic updates,
-        publish the same package to the Chrome Web Store (or Edge Add-ons).
-        See also the <a href="/privacy.html">privacy policy</a>.
+        Google Chrome is a trademark of Google LLC. See the
+        <a href="/privacy.html">privacy policy</a>.
       </p>
     </main>
-    <script>
-      fetch("/downloads/ScholarScope-extension.json")
-        .then(function (r) {
-          return r.ok ? r.json() : null;
-        })
-        .then(function (meta) {
-          var el = document.getElementById("pack-meta");
-          if (!meta) {
-            el.textContent =
-              "Package not built yet — run npm run pack in scholarscope-ext.";
-            return;
-          }
-          var kb = (meta.bytes / 1024).toFixed(1);
-          el.textContent =
-            meta.name +
-            " v" +
-            meta.version +
-            " · " +
-            kb +
-            " KB · packed " +
-            new Date(meta.packedAt).toLocaleString();
-        })
-        .catch(function () {
-          document.getElementById("pack-meta").textContent =
-            "Could not read package metadata.";
-        });
-    </script>
   </body>
 </html>
